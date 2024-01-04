@@ -1,0 +1,44 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.main-text{
+    font-family: 'Blinker', sans-serif;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+nav{
+    display: flex;
+    padding: 10px 25px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    background-color: #336F82;
+    border: 2px solid #FFF;
+}
+
+a:link, a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0FF;
+    text-decoration: none;
+}
+
+button{
+    background-color: #336F82;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+    
+}
+
+img{
+    width: 60px; /* Change later */
+}
