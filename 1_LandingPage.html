@@ -4,12 +4,32 @@
         <meta charset="'utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Light Water</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="1_styles.css">
+
+        <!--Link to Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Blinker&family=Livvic:ital,wght@1,100&family=Poiret+One&family=Raleway:wght@700&display=swap" rel="stylesheet">
     </head>
 
-    <body> 
-        <h1>LIGHT WATER</h1>
-        <p>Tap anywhere to begin</p>
+    <body class="transition"> 
+        <img class="sparklywave" src="Graphics/sparkly wave.png" alt="Blue wave, sparkly">
+        <h1 class="glowing-text"><span style="font-family: 'Poiret One', sans-serif">LIGHT</span>
+            <span style="font-family: 'Raleway';"> <img class="bottle" src="Graphics/water bottle.png" alt="">
+                 WATER</span></h1>
+        <h2 class="glowing-text"><span style="font-family: 'Livvic', sans-serif;">TAP ANYWHERE TO BEGIN</span></h2>
+        <img class="largewave" src="Graphics/large wave.png" alt="Blue wave, large">
+        <h3><span style="font-family: 'Blinker', sans-serif;">An IGEN 330 Project</span></h3>
+
+        <script>
+            document.addEventListener('click', function() {
+                document.body.classList.toggle('current-page');
+                document.body.classList.toggle('next-page');
+
+                setTimeout(function() {
+                    window.location.href = '2_IntroPage.html';
+                }, 1000); // 1000 milliseconds = transition duration
+            });
+        </script>
     </body>
 </html>
