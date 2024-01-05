@@ -1,7 +1,6 @@
 
 
-// Nav Bar
-
-function changeContent(page) {
-    document.getElementById('content').innerHTML;
+// Buttons: on clikc redirect to indicated page 
+function redirectToPage(pageUrl) {
+    window.location.href = pageUrl;
 }

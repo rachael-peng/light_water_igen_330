@@ -1,15 +1,28 @@
+
+/* Text colors */
+.cyan{
+    color: #00FFFF;
+}
+
+.dark-blue{
+    color: #00B2FF;
+}
+
 body{
     background-color: black;
     color: white;
+    text-align: center;
+    padding: 10px;
 }
 
 .main-text{
     font-family: 'Blinker', sans-serif;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
 }
 
+/* Nav Bar*/
 nav{
     display: flex;
     padding: 10px 25px;
@@ -21,6 +34,24 @@ nav{
     border: 2px solid #FFF;
 }
 
+img{
+    width: 60px; /* Change later */
+    max-height: 70px;
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0; /* no border spacing between columns */
+}
+
+
+td {
+    padding: 0px;
+    border-spacing: 0;
+    margin: 0;
+}
+      
 a:link, a:visited {
     color: white;
     text-decoration: none;
@@ -34,11 +65,176 @@ a:hover {
 button{
     background-color: #336F82;
     border: none;
+    color: white;
     font-family: 'Raleway', sans-serif;
     font-size: 20px;
     
 }
 
-img{
-    width: 60px; /* Change later */
+
+h2{
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
 }
+
+.return-landing{
+    position: absolute;
+    bottom: 10px;    
+    padding: 0;
+    margin: 0;
+}
+
+/* Circle with Number */
+.circle-number{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 82px;
+    height: 82px;
+    background-color: rgba(146, 255, 235, 0.30);
+    color: white;
+    font-family: 'Blinker', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    border: 10px solid #12DF89;
+    box-sizing: border-box;
+    border-radius: 50%; /* Create a circle with 50% border-radius */
+
+}
+
+/* Activate Installation: Page 1 */
+.activate-button{
+    border-radius: 75px;
+    border: 8px solid #0FF;
+    fill: #336F82;
+    font-size: 20px;
+    width: 326px;
+    height: 380px;
+}
+
+.buttons-section{
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 125px;
+    padding-top: 20px;
+}
+
+.buttons-div{
+    display: inline-flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.button-image{
+    width: 225px;
+    max-height: 422px;
+    display: block;
+}
+
+/* Activate Installation: Page 2 */
+/* Position of each country */
+.canada-container{
+    position: absolute;
+    top: 270px;
+    left: 180px;
+    transform: rotate(4.909deg);
+    width: 300px;
+    max-height: 1000px;
+}
+
+.mexico-container{
+    position: absolute;
+    top: 63%;
+    left: 10%;
+    transform: rotate(10deg);
+    width: 165px;
+    max-height: 1000px;
+}
+
+.us-container{
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: rotate(2.817deg);
+    width: 190px;
+    max-height: 1000px;
+}
+
+
+
+.japan-container{
+    position: absolute;
+    top: 35%;
+    left: 75%;
+    transform: rotate(-6.435deg);
+    width: 125px;
+    max-height: 1000px;
+}
+
+
+.phillipines-container{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+    transform: rotate(4.909deg);
+    width: 300px;
+    max-height: 1000px;
+}
+
+.tanzania-container{
+    position: absolute;
+    top: 60%;
+    left: 60%;
+    transform: rotate(4.909deg);
+    width: 90px;
+    max-height: 1000px;
+}
+
+
+.russia-container{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 550px;
+    max-height: 1000px;
+}
+
+.france-container{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    width: 55px;
+    max-height: 1000px;
+}
+
+
+.madagascar-container{
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    transform: rotate(4.909deg);
+    width: 55px;
+    max-height: 1000px;
+}
+
+.phillipines-container{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    width: 70px;
+    max-height: 1000px;
+}
+
+.indonesia-container{
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    transform: rotate(31.941deg);
+    width: 190px;
+    max-height: 1000px;
+}
+
