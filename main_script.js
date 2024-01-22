@@ -1,13 +1,16 @@
 
 
-// Buttons: on clikc redirect to indicated page 
+// Buttons: on click redirect to indicated page 
 function redirectToPage(pageUrl) {
     window.location.href = pageUrl;
 }
-http://192.168.1.84/26/on
+
+
+
+// http://10.43.70.147/26/on
 // GET request 
-function sendGetRequest() {
-    const url = '???';
+function sendGetRequest_GoodBlue() {
+    const url = 'http://10.43.70.147/26/on';
 
     // Use jQuery library to send the GET request
     $.ajax({ // used to send an asynchronous HTTP GET request
@@ -27,4 +30,5 @@ function sendGetRequest() {
         alert('Error: ' + textStatus + ' - ' + errorThrown);
       }
     });
+    return;
   }

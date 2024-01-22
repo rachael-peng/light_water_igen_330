@@ -73,22 +73,39 @@
           </div>
 
           <section>
-            <a onclick="sendGetRequest()"><img src="Graphics/countries/canada.png" alt="Map of Canada with flag" class="canada-container"></a>
-            <img src="Graphics/countries/phillipines.png" alt="Map of Phillipines with flag" class="phillipines-container">
-            <img src="Graphics/countries/mexicO.png" alt="Map of Mexico with flag" class="mexico-container">
-            <img src="Graphics/countries/france.png" alt="Map of France with flag" class="france-container">
-            <img src="Graphics/countries/russia.png" alt="Map of Russia with flag" class="russia-container">
-            <img src="Graphics/countries/indonesia.png" alt="Map of Indonesia with flag" class="indonesia-container">
-            <img src="Graphics/countries/us.png" alt="Map of US with flag" class="us-container">
-            <img src="Graphics/countries/tanzania.png" alt="Map of Tanzania with flag" class="tanzania-container">
-            <img src="Graphics/countries/japan.png" alt="Map of Japan with flag" class="japan-container">
-            <img src="Graphics/countries/madagascar.png" alt="Map of Madagascar with flag" class="madagascar-container">
-
-
-
-
-
-
+            <a onclick="redirectToPage('7.Global3_AI.html')">
+              <!--
+                State of Installation Activated: Blue
+                Score: 100-75
+                Countries: Canada, Japan, US, France
+              -->
+              <a onclick="sendGetRequest_GoodBlue()">
+                <img src="Graphics/countries/canada.png" alt="Map of Canada with flag" class="canada-container">
+                <img src="Graphics/countries/japan.png" alt="Map of Japan with flag" class="japan-container">
+                <img src="Graphics/countries/us.png" alt="Map of US with flag" class="us-container">
+                <img src="Graphics/countries/france.png" alt="Map of France with flag" class="france-container">
+              </a>
+              <!--
+                State of Installation Activated: Yellow
+                Score: 75-50
+                Countries: Mexico, Russia, Phillipines
+              -->
+              <a onclick="sendGetRequest_MediumYellow()">
+                <img src="Graphics/countries/mexicO.png" alt="Map of Mexico with flag" class="mexico-container">
+                <img src="Graphics/countries/russia.png" alt="Map of Russia with flag" class="russia-container">
+                <img src="Graphics/countries/phillipines.png" alt="Map of Phillipines with flag" class="phillipines-container">
+              </a>
+              <!--
+                State of Installation Activated: Red
+                Score: 50-0
+                Countries: Madagascar, Tanzania, Indonesia
+              -->
+              <a onclick="sendGetRequest_BadRed()">
+                <img src="Graphics/countries/madagascar.png" alt="Map of Madagascar with flag" class="madagascar-container">
+                <img src="Graphics/countries/tanzania.png" alt="Map of Tanzania with flag" class="tanzania-container">
+                <img src="Graphics/countries/indonesia.png" alt="Map of Indonesia with flag" class="indonesia-container">
+              </a>
+            </a>
           </section>
 
           
