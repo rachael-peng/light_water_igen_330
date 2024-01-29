@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Light Water</title>
         <link rel="stylesheet" href="main_styles.css">
-        <script src="main_script.js"></script>
 
         <!--Link to Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -58,11 +57,30 @@
             </button>
         </nav>
         <main>
-            <p>hi</p>
+          <h2>Now it's time to set the installation into motion! Follow the simple instructions below.</h2>
+          <p>
+            1.
+            <button id="connectBleButton">Click me to connect to the installation!</button>
+            You will be prompted by the browser to pair with available devices. Please select "esp32".
+          </p>
+
+          <p>
+            2. 
+            <button id="onButton">Click me to turn on the lights and moition!</button>
+          </p>
+          
+          <p>Installation Connection State: <strong><span id="bleState" style="color: rgb(225, 0, 255);">Currently Disconnected</span></strong></p>
+          
+          <p></p>
+          <!--disconnectBleButton, offButton-->
+          <button id="restartProcesses">
+            Stop Installation and Restart!
+          </button>
         </main>
 
 
+        <script defer src="main_script.js"></script>
     </body>
 
-
+    <a href="#" class="return-landing" onclick="redirectToPage('1_LandingPage.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
 </html>
