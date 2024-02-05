@@ -58,44 +58,53 @@
             </button>
         </nav>
         <main>
-            <div style="padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 30px;">
-                <table>
-                    <tr>
-                        <td><div class="circle-number">1</div></td>
-                        <td><p class="main-text" style="padding-left: 20px;">
-                            The state of the Light Water installation (that is, the lighting colour, intensity, and timing as well as oscillating motion) will update to reflect the quality of drinkable water taken from the data sources below. 
-                        </p></td>
-                    </tr>
-                </table>
-            </div>
-            <h2>
-                Please select 1 data source from the below that you are interested in exploring:
+            <h2 style="color:#12DF89; padding-bottom: 10px; border-bottom: 2px solid #12DF89">
+                Explore clean water statistics from different regions around the world and from water samples 
+                collected locally in Vancouver.
             </h2>
+            <p class="main-text">
+                The state of the Light Water installation - that is, the lighting colour, intensity, and timing as well as oscillating motion - 
+                will update to reflect the quality of drinkable water taken from the data sources below. 
+            </p>
+
+            <table>
+                <tr>
+                    <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
+                        <div class="circle-number">1</div></td>
+                    <td>
+                        <h2 style="color: #12DF89; text-align: left;">
+                            Select a data source from the below that you are interested in exploring:
+                        </h2>
+                    </td>
+                </tr>
+            </table>
 
             <section class="buttons-section">
                 <button class="activate-button" onclick="redirectToPage('7.Sensor2_AI.html')">
                     <div class="buttons-div">
                         <img class='button-image' src='Graphics/sensor/sensor.png' alt="Black sensor emitting waves">
-                        <p>Sensor Data from Water Samples</p>
+                        <p style="font-size: 24px">Sensor Data Collected from Water Samples</p>
                     </div>
                 </button>
                 <button class="activate-button" onclick="redirectToPage('7.Global2_AI.html')">
                     <div class="buttons-div">
                         <img class='button-image' src='Graphics/globe.png' alt="Blue and green globe">
-                        <p>Global Water Data</p>
+                        <p style="font-size: 24px">Global Water Statistics</p>
                     </div>
                 </button>
                 <button class="activate-button">
                     <div class="buttons-div">
                         <img class='button-image' src='Graphics/bc.png' alt="Blue and green globe">
-                        <p>BC Water Data</p>
+                        <p style="font-size: 24px">BC Water Statistics</p>
                         
                     </div>
                 </button>
             </section>
+
+            
         </main>
-
-
-        <a href="#" class="return-landing" onclick="redirectToPage('1_LandingPage.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
+        <footer style="padding-top: 20px">
+            <a href="#" onclick="redirectToPage('1_LandingPage.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
+        </footer>
     </body>
 </html>

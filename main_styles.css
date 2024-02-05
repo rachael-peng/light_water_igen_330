@@ -20,6 +20,8 @@ body{
     text-align: center;
     font-size: 24px;
     font-weight: 400;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .installation-activated {
@@ -98,14 +100,14 @@ h2{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 82px;
-    height: 82px;
+    width: 50px;
+    height: 50px;
     background-color: rgba(146, 255, 235, 0.30);
     color: white;
     font-family: 'Blinker', sans-serif;
-    font-size: 50px;
+    font-size: 34px;
     font-weight: 700;
-    border: 10px solid #12DF89;
+    border: 7px solid #12DF89;
     box-sizing: border-box;
     border-radius: 50%; /* Create a circle with 50% border-radius */
 
@@ -125,12 +127,13 @@ h2{
     display: inline-flex;
     align-items: flex-start;
     gap: 125px;
-    padding-top: 20px;
 }
 
 .buttons-div{
     display: inline-flex;
-    padding: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
     flex-direction: column;
     align-items: center;
     gap: 10px;
@@ -157,6 +160,9 @@ h2{
     font-style: normal;
     font-weight: 700;
 }
+
+/* Activate Installation: Sensor, Page 2 */
+
 
 /* Activate Installation: Sensor, Page 3 */
 .green-circle {
