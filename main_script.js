@@ -1,116 +1,192 @@
-
-
 // Buttons: on click redirect to indicated page 
 function redirectToPage(pageUrl) {
     window.location.href = pageUrl;
 }
 
+// WATER SAMPLES PAGE 2
+// Store ID of which button (link) clicked
+function storeLinkId(linkId) {
+  storedWaterId = linkId;
+  console.log("Stored water link ID:", storedWaterId); 
 
-// HTML elements --> JS variables
-const connectButton = document.getElementById('connectBleButton');
-const onButton = document.getElementById('onButton');
-const bleStateContainer = document.getElementById('bleState');
-const restartButton = document.getElementById('restartProcesses');
+  document.getElementById('page2').classList.add('hidden');
+  document.getElementById('page3').classList.remove('hidden');
 
-// Define BLE device specs 
-var deviceName ='ESP32';
-var bleService = '19b10000-e8f2-537e-4f6c-d104768a1214';
-var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
-var sensorCharacteristic= '19b10001-e8f2-537e-4f6c-d104768a1214'
+  getWaterData(storedWaterId);
 
-// Global Variables
-var bleServer;
-var bleServiceFound;
+  document.getElementById("zincVal").innerHTML = measureZinc;
+  document.getElementById("ironVal").innerHTML = measureIron;
+  document.getElementById("naclVal").innerHTML = measureSodiumChloride;
+  document.getElementById("hardnessVal").innerHTML = measureHardness;
+  document.getElementById("copperVal").innerHTML = measureCopper;
+  document.getElementById("leadVal").innerHTML = measureLead;
+  document.getElementById("h2sVal").innerHTML = measureHydrogenSulfide;
+  document.getElementById("fluorideVal").innerHTML = measureFluoride;
+  document.getElementById("sulfateVal").innerHTML = measureSulfate;
+  document.getElementById("nitrateVal").innerHTML = measureNitrate;
+  document.getElementById("nitriteVal").innerHTML = measureNitrite;
+  document.getElementById("manganeseVal").innerHTML = measureManganese;
+  document.getElementById("mercuryVal").innerHTML = measureMercury;
+  document.getElementById("phVal").innerHTML = pHVal;
+  document.getElementById("turbidityVal").innerHTML = turbidityVal;
 
-// Connect Button (search for BLE Devices only if BLE is available)
-connectButton.addEventListener('click', (event) => {
-  if (isWebBluetoothEnabled()){
-    connectToDevice();
+  var imageElement = document.getElementById('dynamicImage');
+  
+  // Define the image sources based on the variable value
+  var imageSources = {
+      "spanishBanks": 'Graphics/sensor/samples/spanish banks sample.png',
+      "householdTap": 'Graphics/sensor/samples/tap water - pH.jpeg',
+      'vanHarbour': 'Graphics/sensor/samples/harbour smaple.png',
+      "dirtLemon": 'Graphics/sensor/samples/eng sample - turbidity.jpeg'
+  };
+
+  // Set the src attribute of the image element based on the variable value
+  imageElement.src = imageSources[storedWaterId];
+
+  var bacteriaElementBackground = document.getElementById('bacteriaBackground');
+  var bacteriaElementMark = document.getElementById('bacteriaMark');
+  var bacteriaElementCaption = document.getElementById('bacteriaCaption')
+
+  // ECOLI
+  if (ecoliBacteriaIndicator === -1) {
+    bacteriaElementBackground.classList.add("red-circle");
+    bacteriaElementMark.src = 'Graphics/x.png'
+    bacteriaElementCaption.textContent = "E.Coli bacteria detected!";
   }
-});
+  else {
+    bacteriaElementBackground.classList.add("green-circle");
+    bacteriaElementMark.src = 'Graphics/checkmark.png'
+  }
 
-// searches for  specific BLE Device, its Service and Characteristics.
-function connectToDevice(){
-  navigator.bluetooth.requestDevice({
-    filters: [{name: deviceName}],
-    optionalServices: [bleService]
-})
-.then(device => {
-  console.log('Device Selected:', device.name);
-  bleStateContainer.innerHTML = 'Connected to Installation ' + device.name;
-  bleStateContainer.style.color = "#24af37";
-  device.addEventListener('gattservicedisconnected', onDisconnected);
-  return device.gatt.connect();
-})
-.then(gattServer =>{
-  bleServer = gattServer;
-  console.log("Connected to GATT Server");
-  return bleServer.getPrimaryService(bleService);
-})
-.then(service => {
-  bleServiceFound = service;
-  console.log("Service discovered:", service.uuid);
-})
+  var movingElementpH = document.getElementById('movingpH');
+  var movingElementTur = document.getElementById('movingturbidity');
+  var movingElementpHNum = document.getElementById('movingpHNum');
+  var movingElementTurNum = document.getElementById('movingturbidityNum');
+  var nameOfSample = document.getElementById('nameSample');
+
+  if (storedWaterId === "spanishBanks") {
+    movingElementpH.style.left = '235px';
+    movingElementTur.style.left = '360px';
+    movingElementpHNum.style.left = '230px';
+    movingElementTurNum.style.left = '355px';
+
+    nameOfSample.textContent = "Spanish Banks Beach Water Sample";
+  }
+  else if (storedWaterId === "householdTap") {
+    movingElementpH.style.left = '265px';
+    movingElementTur.style.left = '620px';
+    movingElementpHNum.style.left = '260px';
+    movingElementTurNum.style.left = '615px';
+
+    nameOfSample.textContent = "Household Tap Water Sample";
+  }
+  else if (storedWaterId === "dirtLemon") {
+    movingElementpH.style.left = '180px';
+    movingElementTur.style.left = '-20px';
+    movingElementpHNum.style.left = '180px';
+    movingElementTurNum.style.left = '-25px';
+
+    nameOfSample.textContent = "Mystery Water Sample";
+  }
+  else if (storedWaterId === "vanHarbour") {
+    movingElementpH.style.left = '270px';
+    movingElementTur.style.left = '595px';
+    movingElementpHNum.style.left = '265px';
+    movingElementTurNum.style.left = '590px';
+
+    nameOfSample.textContent = "Vancouver Harbour Water Sample";
+  }
+
+
+
+  // MINERAL AND ION CONCENTRATION 
+  // if ...clour...
 }
 
-// Check if BLE is available in your Browser
-function isWebBluetoothEnabled() {
-  if (!navigator.bluetooth) {
-      console.log("Web Bluetooth API is not available in this browser!");
-       bleStateContainer.innerHTML = "Web Bluetooth API is not available in this browser/device!";
-       return false
+// Provide the data of water sample
+function getWaterData(waterID) {
+  // DATA:
+  // 1. Spanish Banks
+  if (waterID === "spanishBanks") {
+      pHVal = 5.87;
+      turbidityVal = 0.41;
+      ecoliBacteriaIndicator = 0;
+      measureSodiumChloride  = 0;
+      measureZinc = 0;
+      measureMercury = 0;
+      measureManganese = 0;
+      measureCopper = 0;
+      measureIron = 0;
+      measureLead = 0;
+      measureHydrogenSulfide = 0;
+      measureFluoride = 0;
+      measureHardness = 0;
+      measureSulfate = 0;
+      measureNitrate = 0;
+      measureNitrite = 0;
   }
-  console.log('Web Bluetooth API supported in this browser.');
-  return true
-}
-
-
-// Disconnect Button
-restartButton.addEventListener('click', disconnectDevice, () => writeOnCharacteristic(0));
-
-// Write to the ESP32 LED Characteristic
-onButton.addEventListener('click', () => writeOnCharacteristic(1));
-
-if (bleServer && bleServer.connected) {
-  bleServiceFound.getCharacteristic(ledCharacteristic)
-   .then(characteristic => {
-      console.log("Found the LED characteristic: ", characteristic.uuid);
-      const data = new Uint8Array([value]);
-      return characteristic.writeValue(data);
-})
-.then(() => {
-  latestValueSent.innerHTML = value;
-  console.log("Value written to LEDcharacteristic:", value);
-})
-} else {
-  console.error ("Installation is not connected. Cannot write to characteristic.")
-  window.alert("Installation is not connected. Cannot write to characteristic. \n Connect to BLE first!")
-}
-
-function disconnectDevice() {
-  console.log("Disconnect Device.");
-  if (bleServer && bleServer.connected) {
-      if (sensorCharacteristicFound) {
-          sensorCharacteristicFound.stopNotifications()
-              .then(() => {
-                  console.log("Notifications Stopped");
-                  return bleServer.disconnect();
-              })
-              .then(() => {
-                  console.log("Device Disconnected");
-                  bleStateContainer.innerHTML = "Device Disconnected";
-                  bleStateContainer.style.color = "#d13a30";
-
-              })
-              .catch(error => {
-                  console.log("An error occurred:", error);
-              });
-      } else {
-          console.log("No characteristic found to disconnect.");
-      }
-  } else {
-      // Throw an error if Bluetooth is not connected
-      console.error("Installation is not connected.");
-      window.alert("Installation is not connected.")
+  
+  // 2. Household Tap Water
+  else if (waterID === "householdTap") {
+    pHVal = 6.24;
+    turbidityVal = 0;
+    ecoliBacteriaIndicator = 0;
+    measureSodiumChloride = 0;
+    measureZinc = 0;
+    measureMercury = 0;
+    measureManganese = 0;
+    measureCopper = 0;
+    measureIron = 0;
+    measureLead = 0;
+    measureHydrogenSulfide = 0;
+    measureFluoride = 0;
+    measureHardness = 0;
+    measureSulfate = 0;
+    measureNitrate = 0;
+    measureNitrite = 0;
   }
+  
+  // 3. Vancouver Harbour
+  else if (waterID === "vanHarbour") {
+    pHVal = 6.35;
+    turbidityVal = 0.04;
+    ecoliBacteriaIndicator = 0;
+    measureSodiumChloride = 0;
+    measureZinc = 0;
+    measureMercury = 0;
+    measureManganese = 0;
+    measureCopper = 0;
+    measureIron = 0;
+    measureLead = 0;
+    measureHydrogenSulfide = 0;
+    measureFluoride = 0;
+    measureHardness = 0;
+    measureSulfate = 0;
+    measureNitrate = 0;
+    measureNitrite = 0;
+  }
+  
+  // 4. DIRT AND LEMON
+  else if (waterID === "dirtLemon") {
+    pHVal = 4.49;
+    turbidityVal = 1;
+    ecoliBacteriaIndicator = -1;
+    measureSodiumChloride = 0;
+    measureZinc = 0;
+    measureMercury = 0;
+    measureManganese = 0;
+    measureCopper = 0;
+    measureIron = 0;
+    measureLead = 0;
+    measureHydrogenSulfide = 0;
+    measureFluoride = 0;
+    measureHardness = 0;
+    measureSulfate = 0;
+    measureNitrate = 0;
+    measureNitrite  = 0;
+  }
+  
+  // FALSE CREEK
+  // WRECK BEACH
+  // RAINWATER
 }

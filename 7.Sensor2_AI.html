@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Light Water</title>
         <link rel="stylesheet" href="main_styles.css">
-        <script src="main_script.js"></script>
 
         <!--Link to Google Fonts-->
         <link rel="preconnect" href="https://fonts.googleapis.com"> 
@@ -56,7 +55,8 @@
                   </table>
             </button>
         </nav>
-        <main>
+        <!--PAGE 2-->
+        <main id="page2">
           <table>
             <tr>
                 <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
@@ -67,36 +67,261 @@
                     </h2>
                 </td>
             </tr>
-        </table>
-
-        <table>
-          <tr>
-            <td style="padding: 20px">
-              <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px; max-height: 1000px;" src="Graphics/sensor/locations/wreck beach.jpeg" alt="wreck beach"> 
-              <figcaption class="main-text">
-                Wreck Beach Water Sample
-              </figcaption>
-            </td>
-            <td style="padding: 20px">
-              <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px; max-height: 1000px;" src="Graphics/sensor/locations/tap water.jpg" alt="tap water"> 
-                <figcaption class="main-text">
-                  Household Tap Water
-                </figcaption>
-            </td>
-          </tr>
-        </table>
+          </table>
+          <table>
+            <tr>
+              <!--SPANISH BANKS BEACH -->
+              <td style="padding: 20px">
+                <a id="spanishBanks" href="#" onclick="storeLinkId(this.id)">
+                  <img style="width: 300px; max-height: 1000px;" src="Graphics/sensor/locations/spanish banks.jpeg" alt="spanish banks beach"> 
+                  <figcaption class="main-text" style="text-align: center;">
+                    Spanish Banks Beach Water Sample
+                  </figcaption>
+                </a>
+              </td>
+              <!--HOUSEHOLD TAP-->
+              <td style="padding: 20px">
+                <a id="householdTap" href="#" onclick="storeLinkId(this.id)">
+                  <img style="width: 300px; max-height: 1000px;" src="Graphics/sensor/locations/tap water.jpg" alt="tap water"> 
+                  <figcaption class="main-text" style="text-align: center;">
+                    Household Tap Water
+                  </figcaption>
+                </a>
+              </td>
+              <!--VANCOUVER HARBOUR-->
+              <td style="padding: 20px">
+                <a id="vanHarbour" href="#" onclick="storeLinkId(this.id)">
+                  <img style="width:300px; max-height: 1000px;" src="Graphics/sensor/locations/harbour.jpeg" alt="Vancouver harbour">
+                  <figcaption class="main-text" style="text-align: center;">
+                    Vancouver Harbour Water Sample
+                  </figcaption>
+                </a>
+              </td>
+              <!--DIRT AND LEMON JUICE-->
+              <td style="padding: 20px">
+                <a id="dirtLemon" href="#" onclick="storeLinkId(this.id)">
+                  <img style="width: 300px; max-height: 1000px;" src="Graphics/sensor/locations/dirt.jpg" alt="dirt and lemon juice">
+                  <figcaption class="main-text" style="text-align: center;">
+                    Mystery Sample
+                  </figcaption>
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <!--WRECK BEACH-->
+              <td style="padding: 20px">
+                <a id="wreckBeach" href="#" onclick="storeLinkId(this.id)">
+                  <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px" src="" alt="">
+                  <figcaption class="main-text" style="text-align: center;">
+                    UBC Wreck Beach Water Sample
+                  </figcaption>
+                </a>
+              </td>
+              <!--FALSE CREEK-->
+              <td style="padding: 20px">
+                <a id="falseCreek" href="#" onclick="storeLinkId(this.id)">
+                  <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px" src="" alt="">
+                  <figcaption class="main-text" style="text-align: center;">
+                    False Creek Water Sample
+                  </figcaption>
+                </a>
+              </td>
+              <!--RAINWATER-->
+              <td style="padding: 20px">
+                <a id="rainwater" href="#" onclick="storeLinkId(this.id)">
+                  <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px" src="" alt="">
+                  <figcaption class="main-text" style="text-align: center;">
+                   UBC Rainwater Sample
+                  </figcaption>
+                </a>
+              </td>
+              <td>
+                <a id="???" href="#" onclick="storeLinkId(this.id)">
+                  <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px" src="" alt="">
+                  <figcaption class="main-text" style="text-align: center;">
+                    
+                  </figcaption>
+                </a>
+              </td>
+            </tr>
+          </table>
         
-        
-          <!-- <img style="width: 1300px; max-height: 2000px" src="Graphics/sensor/ph instructions.jpg" alt="pH Canva instructions"> -->
-          <!-- <img style="width: 1300px; max-height: 2000px" src="Graphics/sensor/turbidity instructions.jpg" alt="pH Canva instructions"> -->
-          <!-- <button onclick="redirectToPage('7.Sensor3_AI.html')" class="blue-button">
-            I'M DONE!
-          </button> -->
-          
         </main>
 
+         <!--PAGE 3-->
+         <main id="page3" class="hidden">
+          <table>
+            <tr>
+                <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
+                    <div class="circle-number">3</div></td>
+                <td>
+                    <h2 style="color: #12DF89; text-align: left;">
+                        Installation activated! Let's take a closer look at the water sample.
+                    </h2>
+                </td>
+            </tr>
+          </table>
 
+          <!--DATA DISPLAY-->
+          <table>
+            <tr>
+              <td style="padding: 20px;">
+                <h2>pH Scale</h2>
+                <div class="container">
+                  <img class="background-image" style="width: 700px; max-height: 1000px" src="Graphics/sensor/pH scale.png" alt="pH colour scale">
+                  <img class="overlay-image-bar" style="width: 700px; height: 20px" src="Graphics/sensor/scale bar.png" alt="White bar to show scale"> 
+                  <img id="movingpH" class="overlay-image-arrow-ph" style="width: 60px; height: auto" src="Graphics/sensor/Arrow.png" alt="Adjustable arrow">
+                  <div id="movingpHNum" class="circle-number overlay-image-circle"><span id="phVal"></span></div>
+                </div>
+                <h2>Turbidity Scale</h2>
+                <div class="container">
+                  <img class="background-image" style="width: 650px; max-height: 1000px" src="Graphics/sensor/turbidity scale.png" alt="turbidity scale">
+                  <img class="overlay-image-bar" style="width: 650px; height: 20px" src="Graphics/sensor/scale bar.png" alt="White bar to show scale"> 
+                  <img id="movingturbidity" class="overlay-image-arrow-turbidity" style="width: 60px; height: auto" src="Graphics/sensor/Arrow.png" alt="Adjustable arrow">
+                  <div id="movingturbidityNum" class="overlay-image-circle"><span id="turbidityVal"></span></div>
+                </div>
+                <h2>Absence of E.Coli Bacteria</h2>
+                <div class="container">
+                  <div id="bacteriaBackground"></div>
+                  <img id="bacteriaMark" class='overlay-image-checkmark' style="width: 80px; max-height: 500px;" src='' alt="checkmark icon">
+                  <figcaption style="position: absolute; top: 0; left: calc(100% + 10px); width: 200px;">
+                    <p id='bacteriaCaption' class="main-text" style="text-align: left;">No E.Coli. detected!</p>
+                  </figcaption>
+                </div>
+                <h2>Mineral and Ion Concentrations</h2>
+                <p class="main-text">
+                  <span style="color:#12DF89">Iron = <span id="ironVal"></span>;</span>
+                  <span style="color:red">Sodium Chloride = <span id="naclVal"></span>;</span>
+                  <span style="color:yellow">Zinc = <span id="zincVal"></span>;</span>
+                  <span style="color:#12DF89">Mercury = <span id="mercuryVal"></span>;</span>
+                  <span style="color:#12DF89">Manganese = <span id="manganeseVal"></span>;</span>
+                  <span style="color:#12DF89">Copper = <span id="copperVal"></span>;</span>
+                  <span style="color:#12DF89">Lead = <span id="leadVal"></span>;</span>
+                  <span style="color:#12DF89">Hydrogen Sulfide = <span id="h2sVal"></span>;</span>
+                  <span style="color:#12DF89">Fluoride = <span id="fluorideVal"></span>;</span>
+                  <span style="color:#12DF89">Hardness = <span id="hardnessVal"></span>;</span>
+                  <span style="color:#12DF89">Sulfate = <span id="sulfateVal"></span>;</span>
+                  <span style="color:#12DF89">Nitrate = <span id="nitrateVal"></span>;</span>
+                  <span style="color:#12DF89">Nitrite = <span id="nitriteVal"></span>;</span>
+                </p>
+              </td>
+
+
+              <!--PICTURES OF WATER SAMPLE-->
+              <td style="padding: 50px;">
+                <h2 id="nameSample"></h2>
+                <img id="dynamicImage" src="" style="width: 400px; max-height: 1000px">
+              </td>
+            </tr>
+          </table>
+
+          <!--WHAT IS PH-->
+          <table>
+            <tr>
+              <td>
+                <img style="width: 150px; max-height: 1000px" src="Graphics/sensor/pH .png" alt="pH symbol">
+              </td>
+              <td>
+                <h2 style="color: #12DF89; border-bottom: 2px solid #12DF89;"">
+                  What is pH?
+                </h2>
+                <p class="main-text">
+                  pH is the measure of how acidic or basic a substance is. 
+                  It ranges from 0 to 14, with 0 being extremely acidic, 14 being highly basic, 
+                  and 7 being neutral. 
+                </p>
+                <p class="main-text">
+                  The ideal pH for drinking water is generally around 7,
+                  which is considered neutral. Water that is too acidic or too basic 
+                  can affect its taste, safety, and its ability to interact with 
+                  substances in our bodies, resulting in unsafe drinking water.
+                </p>
+              </td>
+            </tr>
+          </table>
+
+          <!--WHAT IS TURBIDITY-->
+          <table>
+            <tr>
+              <td>
+                <img style="width: 160px; max-height: 1000px" src="Graphics/sensor/turbidity icon.png" alt="turbidity symbol">
+              </td>
+              <td>
+                <h2 style="color: #12DF89; border-bottom: 2px solid #12DF89;"">
+                  What is Turbidity?
+                </h2>
+                <p class="main-text">
+                  dfihgjeh jjkefj hkasjhk jhk shj wpoewo sfbn iuds fdnf ksjk jkdsjkfhjk sjhkdhfjkjshk djhkfjkhsjhkdfjkhshjkdjkf jhksjkdfjksjhkdjfj hs jhk
+                </p>
+              </td>
+            </tr>
+          </table>
+
+          <!--WHAT IS ECOLI-->
+          <table>
+            <tr>
+              <td>
+                <img style="width: 160px; max-height: 1000px" src="Graphics/sensor/ecoli icon.png" alt="ecoli bateria symbol">
+              </td>
+              <td>
+                <h2 style="color: #12DF89; border-bottom: 2px solid #12DF89;">
+                  What is E.Coli Bacteria?
+                </h2>
+                <p class="main-text">
+                  dfihgjeh jjkefj hkasjhk jhk shj wpoewo sfbn iuds fdnf ksjk jkdsjkfhjk sjhkdhfjkjshk djhkfjkhsjhkdfjkhshjkdjkf jhksjkdfjksjhkdjfj hs jhk
+                </p>
+              </td>
+            </tr>
+          </table>
+
+          <!--ABOUT MINERALS AND IONS!-->
+          <table>
+            <tr>
+              <td>
+                <img style="width: 160px; max-height: 1000px" src="Graphics/minerals icon.png" alt="ecoli bateria symbol">
+              </td>
+              <td>
+                <h2 style="color: #12DF89; border-bottom: 2px solid #12DF89;">
+                  More about Minerals and Ions
+                </h2>
+                <p class="main-text">
+                  dfihgjeh jjkefj hkasjhk jhk shj wpoewo sfbn iuds fdnf ksjk jkdsjkfhjk sjhkdhfjkjshk djhkfjkhsjhkdfjkhshjkdjkf jhksjkdfjksjhkdjfj hs jhk
+                </p>
+              </td>
+            </tr>
+          </table>
+              
+          </div>
+
+          <h2 style="color: #12DF89">
+            Keep in mind...
+          </h2>
+          <p class="main-text">
+            Evaluating the potability of a water sample involves many parameters 
+            which we have not implemented here, such as testing for harmful bacteria 
+            like E. Coli.  <more explanation> If the absence of other harmful health factor, basing water quality solely on these 2 parameters, we can preliminary predict that... 
+          </p>
+
+
+          <!-- <table>
+            <tr>
+              <td class="container" style="padding-right: 20px;">
+                <div class="green-circle"></div>
+                <img class='overlay-image-checkmark' style="width: 80px; max-height: 500px;" src='Graphics/checkmark.png' alt="checkmark icon">
+              </td>
+              <td>
+                <h2> This water sample is clean!</h2>
+              </td>
+            </tr>
+          </table> -->
+          
+
+          
+            
+        </main>
     </body>
-
-
+    <footer>
+      <a href="#" onclick="redirectToPage('1_LandingPage.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
+      <script src="main_script.js"></script>
+    </footer>
 </html>

@@ -4,6 +4,10 @@
     color: #00FFFF;
 }
 
+.hidden {
+    display: none;
+}
+
 .dark-blue{
     color: #00B2FF;
 }
@@ -17,7 +21,7 @@ body{
 
 .main-text{
     font-family: 'Blinker', sans-serif;
-    text-align: center;
+    text-align: justify;
     font-size: 24px;
     font-weight: 400;
     padding-left: 20px;
@@ -86,6 +90,7 @@ h2{
     font-family: 'Raleway', sans-serif;
     font-size: 30px;
     font-weight: 700;
+    text-align: center;
 }
 
 .return-landing{
@@ -163,7 +168,6 @@ h2{
 
 /* Activate Installation: Sensor, Page 2 */
 
-
 /* Activate Installation: Sensor, Page 3 */
 .green-circle {
     display: block;
@@ -172,6 +176,16 @@ h2{
     border-radius: 50%; /* To create a circle, set border-radius to 50% */
     background-color: #12DF89;
     border: 5px solid #00FF47;
+    box-sizing: border-box; /* Include border in width and height calculations */
+}
+
+.red-circle {
+    display: block;
+    width: 88.832px;
+    height: 88.832px;
+    border-radius: 50%; /* To create a circle, set border-radius to 50% */
+    background-color: red;
+    border: 5px solid darkred;
     box-sizing: border-box; /* Include border in width and height calculations */
 }
 
@@ -198,25 +212,25 @@ h2{
     z-index: 1; /* Ensure the overlay is on top */
 }
 
-.overlay-image-circle-ph {
+.overlay-image-circle {
     position: absolute;
     top: 42px; 
     left: 100px; /* Adjust based on reading */
     z-index: 1; /* Ensure the overlay is on top */
-
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 60px;
+    
+    display: flex; /* Use flexbox */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    
+    width: 75px;
+    height: 65px;
     background-color: #12DF89;
-
+    
     font-family: 'Blinker', sans-serif;
-    font-size: 22px;
     color: #000;
-    font-family: Blinker;
-    font-size: 30px;
-    font-weight: 700;
-
+    font-size: 32px;
+    font-weight: 800;
+    
     border: 5px solid black;
     box-sizing: border-box;
     border-radius: 50%; /* Create a circle with 50% border-radius */
@@ -229,12 +243,12 @@ h2{
     z-index: 1; /* Ensure the overlay is on top */
 }
 
-.overlay-image-circle-turbidity {
+/* .overlay-image-circle-turbidity {
     position: absolute;
     top: 42px; 
-    left: 100px; /* Adjust based on reading */
+    left: 100px; /* Adjust based on reading */ /*
     z-index: 1; /* Ensure the overlay is on top */
-
+/*
     align-items: center;
     justify-content: center;
     width: 60px;
@@ -250,8 +264,9 @@ h2{
 
     border: 5px solid black;
     box-sizing: border-box;
-    border-radius: 50%; /* Create a circle with 50% border-radius */
-}
+    border-radius: 50%; /* Create a circle with 50% border-radius */ /*
+} 
+*/
 
 
 .overlay-image-bar {
@@ -265,8 +280,8 @@ h2{
 /* Position of each country */
 .canada-container{
     position: absolute;
-    top: 270px;
-    left: 180px;
+    top: 210px;
+    left: 160px;
     transform: rotate(4.909deg);
     width: 300px;
     max-height: 1000px;
