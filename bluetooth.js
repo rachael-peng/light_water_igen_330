@@ -1,20 +1,12 @@
+// Buttons: on click redirect to indicated page 
+function redirectToPage(pageUrl) {
+  window.location.href = pageUrl;
+}
 
-// BLUETOOTH CONTROL AND COMMUNICATION 
-// HTML elements --> JS variables
+
+
+// CONNECT TO BLUETOOTH PROCEDURE
 const connectButton = document.getElementById('connectBleButton');
-const onButton = document.getElementById('onButton');
-const bleStateContainer = document.getElementById('bleState');
-const restartButton = document.getElementById('restartProcesses');
-
-// Define BLE device specs 
-var deviceName ='ESP32';
-var bleService = '19b10000-e8f2-537e-4f6c-d104768a1214';
-var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
-var sensorCharacteristic= '19b10001-e8f2-537e-4f6c-d104768a1214'
-
-// Global Variables
-var bleServer;
-var bleServiceFound;
 
 // Connect Button (search for BLE Devices only if BLE is available)
 connectButton.addEventListener('click', (event) => {
@@ -57,6 +49,27 @@ function isWebBluetoothEnabled() {
   console.log('Web Bluetooth API supported in this browser.');
   return true
 }
+
+
+
+
+
+
+// BLUETOOTH CONTROL AND COMMUNICATION 
+// HTML elements --> JS variables
+const onButton = document.getElementById('onButton');
+const bleStateContainer = document.getElementById('bleState');
+const restartButton = document.getElementById('restartProcesses');
+
+// Define BLE device specs 
+var deviceName ='ESP32';
+var bleService = '19b10000-e8f2-537e-4f6c-d104768a1214';
+var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
+var sensorCharacteristic= '19b10001-e8f2-537e-4f6c-d104768a1214'
+
+// Global Variables
+var bleServer;
+var bleServiceFound;
 
 
 // Disconnect Button

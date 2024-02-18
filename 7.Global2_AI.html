@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Light Water</title>
         <link rel="stylesheet" href="main_styles.css">
-        <script src="main_script.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
         <!--Link to Google Fonts-->
@@ -15,106 +14,177 @@
    
     </head>
 
+    <!--NAVIGATION BAR-->  
+    <nav>
+      <button onclick="redirectToPage('3_AboutProject.html')">
+          <table>
+              <tr>
+                <td><img src="Graphics/info.png" alt="Info icon"></td>
+                <td><a href="#">About the Project</a></td>
+              </tr>
+            </table>
+      </button>
+      <button onclick="redirectToPage('4_InstallationWorkings.html')">
+          <table>
+              <tr>
+                <td><img src="Graphics/gear.png" alt="Gear icon"></td>
+                <td><a href="#">Installation Workings</a></td>
+              </tr>
+            </table>
+      </button>
+      <button onclick="redirectToPage('5_CleanWaterStatistics.html')">
+          <table>
+              <tr>
+                <td><img src="Graphics/stats.png" alt="Statistics icon"></td>
+                <td><a href="#">Clean Water Statistics Around the World</a></td>
+              </tr>
+            </table>
+      </button>
+      <button onclick="redirectToPage('6_UNSDG6.html')">
+          <table>
+              <tr>
+                <td><img src="Graphics/Sustainable_Development_Goal_6-removebg-preview.png" alt="SDG6 icon"></td>
+                <td><a href="#">UN SDG 6</a></td>
+              </tr>
+            </table>
+      </button>
+      <button onclick="redirectToPage('7_ActivateInstallation.html')">
+          <table>
+              <tr>
+                <td><img src="Graphics/activate.png" alt="Hand pressing a button icon"></td>
+                <td class="activateInstallationContainer"><a href="#">Activate Installation</a></td>
+              </tr>
+            </table>
+      </button>
+    </nav>
+
     <body>
-        <nav>
-            <button onclick="redirectToPage('3_AboutProject.html')">
-                <table>
-                    <tr>
-                      <td><img src="Graphics/info.png" alt="Info icon"></td>
-                      <td><a href="#">About the Project</a></td>
-                    </tr>
-                  </table>
-            </button>
-            <button onclick="redirectToPage('4_InstallationWorkings.html')">
-                <table>
-                    <tr>
-                      <td><img src="Graphics/gear.png" alt="Gear icon"></td>
-                      <td><a href="#">Installation Workings</a></td>
-                    </tr>
-                  </table>
-            </button>
-            <button onclick="redirectToPage('5_CleanWaterStatistics.html')">
-                <table>
-                    <tr>
-                      <td><img src="Graphics/stats.png" alt="Statistics icon"></td>
-                      <td><a href="#">Clean Water Statistics Around the World</a></td>
-                    </tr>
-                  </table>
-            </button>
-            <button onclick="redirectToPage('6_UNSDG6.html')">
-                <table>
-                    <tr>
-                      <td><img src="Graphics/Sustainable_Development_Goal_6-removebg-preview.png" alt="SDG6 icon"></td>
-                      <td><a href="#">UN SDG 6</a></td>
-                    </tr>
-                  </table>
-            </button>
-            <button onclick="redirectToPage('7_ActivateInstallation.html')">
-                <table>
-                    <tr>
-                      <td><img src="Graphics/activate.png" alt="Hand pressing a button icon"></td>
-                      <td><a href="#">Activate Installation</a></td>
-                    </tr>
-                  </table>
-            </button>
-        </nav>
-        <main>
+        <!--PAGE 2: SELECT COUNTRY-->
+        <main id="page2">
           <div style="padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 30px;">
               <table>
                   <tr>
                       <td><div class="circle-number">2</div></td>
-                      <td><h2 style="padding-left: 20px;">Select your region of interest:</h2> </td>
+                      <td><h2 style="padding-left: 20px; color: #12DF89">Select your region of interest:</h2> </td>
                   </tr>
               </table>
           </div>
 
-          <div>
-
-          </div>
-
           <section>
-            <a id="" onclick="redirectToPage('7.Global3_AI.html')">
-              <!--
-                State of Installation Activated: Blue
-                Score: 100-75
-                Countries: Canada, Japan, US, France
-              -->
-              <a>
-                <img src="Graphics/countries/canada.png" alt="Map of Canada with flag" class="canada-container">
-                <img src="Graphics/countries/japan.png" alt="Map of Japan with flag" class="japan-container">
-                <img src="Graphics/countries/us.png" alt="Map of US with flag" class="us-container">
-                <img src="Graphics/countries/france.png" alt="Map of France with flag" class="france-container">
-              </a>
-              <!--
-                State of Installation Activated: Yellow
-                Score: 75-50
-                Countries: Mexico, Russia, Phillipines
-              -->
-              <a>
-                <img src="Graphics/countries/mexicO.png" alt="Map of Mexico with flag" class="mexico-container">
-                <img src="Graphics/countries/russia.png" alt="Map of Russia with flag" class="russia-container">
-                <img src="Graphics/countries/phillipines.png" alt="Map of Phillipines with flag" class="phillipines-container">
-              </a>
-              <!--
-                State of Installation Activated: Red
-                Score: 50-0
-                Countries: Madagascar, Tanzania, Indonesia
-              -->
-              <a>
-                <img src="Graphics/countries/madagascar.png" alt="Map of Madagascar with flag" class="madagascar-container">
-                <img src="Graphics/countries/tanzania.png" alt="Map of Tanzania with flag" class="tanzania-container">
-                <img src="Graphics/countries/indonesia.png" alt="Map of Indonesia with flag" class="indonesia-container">
-              </a>
+            <!--
+              State of Installation Activated: Blue
+              Score: 100-75
+              Countries: Canada, Japan, US, France
+            -->
+            <a id="Canada" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/canada.png" alt="Map of Canada with flag" class="canada-container">
+            </a>
+            <a id="Japan" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/japan.png" alt="Map of Japan with flag" class="japan-container">
+            </a>
+            <a id="US" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/us.png" alt="Map of US with flag" class="us-container">
+            </a>
+            <a id="France" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/france.png" alt="Map of France with flag" class="france-container">
+            </a>
+            <!--
+              State of Installation Activated: Yellow
+              Score: 75-50
+              Countries: Mexico, Russia, Phillipines
+            -->
+            <a id="Mexico" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/mexicO.png" alt="Map of Mexico with flag" class="mexico-container">
+            </a>
+            <a id="Russia" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/russia.png" alt="Map of Russia with flag" class="russia-container">
+            </a>
+            <a id="Phillipines" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/phillipines.png" alt="Map of Phillipines with flag" class="phillipines-container">
+            </a>
+            <!--
+              State of Installation Activated: Red
+              Score: 50-0
+              Countries: Madagascar, Tanzania, Indonesia
+            -->
+            <a id="Madagascar" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/madagascar.png" alt="Map of Madagascar with flag" class="madagascar-container">
+            </a>
+            <a id="Tanzania" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/tanzania.png" alt="Map of Tanzania with flag" class="tanzania-container">
+            </a>
+            <a id="Indonesia" href="#" onclick="displayCountryData(this.id)">
+              <img src="Graphics/countries/indonesia.png" alt="Map of Indonesia with flag" class="indonesia-container">
             </a>
           </section>
-
-          
-
-
         </main>
 
 
+        <!--PAGE 3: DISPLAY STATISTICS-->
+        <main id="page3" class="hidden">
+          <!--Title-->
+          <div style="padding-top: 15px; padding-bottom: 15px; padding-left: 30px; padding-right: 30px;">
+            <table>
+                <tr>
+                    <td><div class="circle-number">3</div></td>
+                    <td>
+                      <h2 style="padding-left: 20px; color: #12DF89">Installation Activated! 
+                        Let's take a closer look at the country data.</h2>
+                    </td>
+                </tr>
+            </table>
+          </div>
+
+          <table style="margin: 0 auto">
+            <tr>
+              <td>
+                <h2>Country Selected: <span id="countryNameDisplay" style="color:#0FF"></span></h2>
+              </td> 
+              <td style="padding: 20px">
+                <img id="dynamicCountryShapeImage" src="" style="width: 300px; max-height: 1000px" alt="country shape">
+              </td>
+              <td style="padding: 20px">
+                <img id="dynamicCountryFlagImage" src="" style="width: 300px; max-height: 1000px" alt="country flag">
+              </td>
+            </tr>
+          </table>
+
+          <table>
+            <tr>
+              <td style="padding: 20px;">
+                <p class="main-text" style="text-align: center"><span style="color: #0FF">2000: </span>Safely managed drinking water in use, percentage of population</p>
+              </td>
+              <td>
+                <p class="main-text" style="text-align: center"><span style="color: #0FF">2022: </span>Safely managed drinking water in use, percentage of population</p>
+              </td>
+              <td>
+                <p class="main-text" style="text-align: center"><span style="color: #0FF">2000: </span>Access to safely managed sanitation, percentage of population</p>
+              </td>
+              <td>
+                <p class="main-text" style="text-align: center"><span style="color: #0FF">2022: </span>Access to safely managed sanitation, percentage of population</p>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-left: 50px">
+                <div id="drinkingWater2000Circle" class="small-circle-statistics" style="font-size: 46px;"><span id="drinking2000" style="font-size: 46px;"></span>%</div>
+              </td>
+              <td style="padding-left: 50px">
+                <div id="drinkingWater2022Circle" class="circle-statistics"><span id="drinking2022"></span>%</div>
+              </td>
+              <td style="padding-left: 50px">
+                <div id="sanitation2000Circle" class="small-circle-statistics" style="font-size: 46px;"><span id="sanitation2000" style="font-size: 46px;"></span>%</div>
+              </td>
+              <td style="padding-left: 50px">
+                <div id="sanitation2022Circle" class="circle-statistics"><span id="sanitation2022"></span>%</div>
+              </td>
+            </tr>
+          </table>
+          <!-- <h2 style="padding-top: 40px" id="overallCaption">Overall: Widely accessible clean water</h2> -->
+          <!-- <img style="width: 1000px; max-height: 500px;" src="Graphics/global/stats-cleanwater.jpg" alt="clear water photo"> -->
+          <a href="#" onclick="redirectToPage('1_LandingPage.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
+        </main>
     </body>
-
-
+    <footer>
+      <script src="main_script.js"></script>
+    </footer>
 </html>

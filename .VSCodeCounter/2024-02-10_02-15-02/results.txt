@@ -1,0 +1,43 @@
+Date : 2024-02-10 02:15:02
+Directory : /Users/ruixue/Downloads/light_water_igen_330
+Total : 16 files,  1690 codes, 123 comments, 242 blanks, all 2055 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| HTML       |         10 |      1,091 |         65 |        128 |      1,284 |
+| CSS        |          3 |        357 |         31 |         78 |        466 |
+| JavaScript |          2 |        240 |         27 |         35 |        302 |
+| Markdown   |          1 |          2 |          0 |          1 |          3 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                     | files      | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                        |         16 |      1,690 |        123 |        242 |      2,055 |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                 | language   | code       | comment    | blank      | total      |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/ruixue/Downloads/light_water_igen_330/1_LandingPage.html          | HTML       |         30 |          1 |          4 |         35 |
+| /Users/ruixue/Downloads/light_water_igen_330/1_styles.css                | CSS        |         66 |          0 |         15 |         81 |
+| /Users/ruixue/Downloads/light_water_igen_330/3_AboutProject.html         | HTML       |        138 |          1 |         18 |        157 |
+| /Users/ruixue/Downloads/light_water_igen_330/4_InstallationWorkings.html | HTML       |         61 |          1 |         10 |         72 |
+| /Users/ruixue/Downloads/light_water_igen_330/5_CleanWaterStatistics.html | HTML       |         61 |          1 |         10 |         72 |
+| /Users/ruixue/Downloads/light_water_igen_330/6_UNSDG6.html               | HTML       |         61 |          1 |         10 |         72 |
+| /Users/ruixue/Downloads/light_water_igen_330/7.Global2_AI.html           | HTML       |         90 |         16 |         15 |        121 |
+| /Users/ruixue/Downloads/light_water_igen_330/7.Global3_AI.html           | HTML       |         75 |          2 |         10 |         87 |
+| /Users/ruixue/Downloads/light_water_igen_330/7.Sensor2_AI.html           | HTML       |        280 |         27 |         21 |        328 |
+| /Users/ruixue/Downloads/light_water_igen_330/7.Sensor3_AI.html           | HTML       |        200 |          7 |         22 |        229 |
+| /Users/ruixue/Downloads/light_water_igen_330/7_ActivateInstallation.html | HTML       |         95 |          8 |          8 |        111 |
+| /Users/ruixue/Downloads/light_water_igen_330/README.md                   | Markdown   |          2 |          0 |          1 |          3 |
+| /Users/ruixue/Downloads/light_water_igen_330/bluetooth.js                | JavaScript |         88 |         10 |         12 |        110 |
+| /Users/ruixue/Downloads/light_water_igen_330/main_script.js              | JavaScript |        152 |         17 |         23 |        192 |
+| /Users/ruixue/Downloads/light_water_igen_330/main_styles.css             | CSS        |        289 |         31 |         62 |        382 |
+| /Users/ruixue/Downloads/light_water_igen_330/termination.css             | CSS        |          2 |          0 |          1 |          3 |
+| Total                                                                    |            |      1,690 |        123 |        242 |      2,055 |
++--------------------------------------------------------------------------+------------+------------+------------+------------+------------+

@@ -3,17 +3,296 @@ function redirectToPage(pageUrl) {
     window.location.href = pageUrl;
 }
 
-// WATER SAMPLES PAGE 2
-// Store ID of which button (link) clicked
-function storeLinkId(linkId) {
-  storedWaterId = linkId;
-  console.log("Stored water link ID:", storedWaterId); 
 
+
+
+
+// INSTALLATION CONTROL 
+function activateInstallation(installationState) {
+  resetInstallationState();
+
+  if (installationState === "bad") {
+
+  }
+  else if (installationState === "middle") {
+
+  }
+  else if (installationState === "good") {
+
+  }
+
+  
+}
+
+/// Turn off all lights and motors
+function resetInstallationState() {
+}
+
+
+
+
+
+
+// GLOBAL DATA PAGES
+function displayCountryData(linkID) {
+  // Store the ID of water catalogue sample clicked 
+  storedCountryID = linkID;
+  console.log("Stored country ID:", storedCountryID);
+  
+  // Move to next page
   document.getElementById('page2').classList.add('hidden');
   document.getElementById('page3').classList.remove('hidden');
 
+  // Get data based on ID of country selected
+  getCountryData(storedCountryID);
+  updateCountryStatsName(storedCountryID);
+  updateCountryShapeFlagImage(storedCountryID);
+  updateCircleBackgroundOutline();
+
+  activateInstallation();
+}
+
+// COUNTRY STATISTICS/DATA 
+function getCountryData(countryID) {
+  // CANADA
+  if (countryID === "Canada") {
+    drinkingWaterInUse2000 = 98.2;
+    drinkingWaterInUse2022 = 99;
+    sanitation2000 = 77.4;
+    sanitation2022 = 83.9;
+    installationState = "good";
+  }
+
+  // US
+  else if (countryID === "US") {
+    drinkingWaterInUse2000 = "N/A";
+    drinkingWaterInUse2022 = 97.5;
+    sanitation2000 = 96.5;
+    sanitation2022 = 97;
+    installationState = "good";
+  }
+
+  // MEXICO
+  else if (countryID === "Mexico") {
+    drinkingWaterInUse2000 = 39.6;
+    drinkingWaterInUse2022 = 43;
+    sanitation2000 = 17.6;
+    sanitation2022 = 62.5;
+    installationState = "bad";
+  }
+
+  // FRANCE
+  else if (countryID === "France") {
+    drinkingWaterInUse2000 = 97.4;
+    drinkingWaterInUse2022 = 99.7;
+    sanitation2000 = 88.8;
+    sanitation2022 = 89.7;
+    installationState = "good";
+  }
+
+  // RUSSIA
+  else if (countryID === "Russia") {
+    drinkingWaterInUse2000 = 74.7;
+    drinkingWaterInUse2022 = 76.2;
+    sanitation2000 = 55.4;
+    sanitation2022 = 61.2;
+    installationState = "middle";
+  }
+
+  // MADAGASCAR
+  else if (countryID === "Madagascar") {
+    drinkingWaterInUse2000 = 6.9;
+    drinkingWaterInUse2022 = 22.2;
+    sanitation2000 = 3.2;
+    sanitation2022 = 12.3;
+    installationState = "bad";
+  }
+
+  // TANZANIA
+  else if (countryID === "Tanzania") {
+    drinkingWaterInUse2000 = 1.4;
+    drinkingWaterInUse2022 = 11.3;
+    sanitation2000 = 5.8;
+    sanitation2022 = 25.1;
+    installationState = "bad";
+  }
+
+  // JAPAN
+  else if (countryID === "Japan") {
+    drinkingWaterInUse2000 = 97.8;
+    drinkingWaterInUse2022 = 98.7;
+    sanitation2000 = 96.4;
+    sanitation2022 = 99.1;
+    installationState = "good";
+  }
+
+  // PHILLIPINES
+  else if (countryID === "Phillipines") {
+    drinkingWaterInUse2000 = 40.6;
+    drinkingWaterInUse2022 = 47.9;
+    sanitation2000 = 45.5;
+    sanitation2022 = 62.7;
+    installationState = "bad";
+  }
+
+  // INDONESIA
+  else if (countryID === "Indonesia") {
+    drinkingWaterInUse2000 = 23.5;
+    drinkingWaterInUse2022 = 30.3;
+    sanitation2000 = "N/A";
+    sanitation2022 = "N/A";
+    installationState = "bad";
+  }
+}
+
+// COUNTRY DISPLAY
+function updateCountryStatsName(countryID) {
+  document.getElementById("countryNameDisplay").innerHTML = countryID;
+  document.getElementById("drinking2000").innerHTML = drinkingWaterInUse2000;
+  document.getElementById("drinking2022").innerHTML = drinkingWaterInUse2022;
+  document.getElementById("sanitation2000").innerHTML = sanitation2000;
+  document.getElementById("sanitation2022").innerHTML = sanitation2022;
+}
+
+function updateCountryShapeFlagImage(countryID) {
+  var imageCountryShapeElement = document.getElementById('dynamicCountryShapeImage');
+  var imageCountryFlagElement = document.getElementById('dynamicCountryFlagImage');
+  // Define the image sources based on the variable value
+  var countryShapeImageSources = {
+      "Canada": 'Graphics/global/country shape/Canada map.png',
+      "US": 'Graphics/global/country shape/us map.png',
+      "Mexico": 'Graphics/global/country shape/mexico map.png',
+      "Japan": 'Graphics/global/country shape/japan map.png',
+      "France": 'Graphics/global/country shape/france map.jpg',
+      "Tanzania": 'Graphics/global/country shape/tanzania map.jpg',
+      "Madagascar": 'Graphics/global/country shape/madagascar map.jpg',
+      "Phillipines": 'Graphics/global/country shape/phillipines map.png',
+      "Russia": 'Graphics/global/country shape/russia map.jpg',
+      "Indonesia": 'Graphics/global/country shape/indonesia map.jpg'
+  };
+
+  var countryFlagImageSources = {
+      "Canada": 'Graphics/global/country flag/Canada flag.png',
+      "US": 'Graphics/global/country flag/us flag.png',
+      "Mexico": 'Graphics/global/country flag/mexico flag.png',
+      "Japan": 'Graphics/global/country flag/japan flag.png',
+      "France": 'Graphics/global/country flag/france flag.png',
+      "Tanzania": 'Graphics/global/country flag/Tanzania flag.png',
+      "Madagascar": 'Graphics/global/country flag/madagascar flag.png',
+      "Phillipines": 'Graphics/global/country flag/phillipines flag.png',
+      "Russia": 'Graphics/global/country flag/russia flag.png',
+      "Indonesia": 'Graphics/global/country flag/indonesia flag.png'
+  }
+
+  // Set the src attribute of the image element based on the variable value
+  imageCountryShapeElement.src = countryShapeImageSources[countryID];
+  imageCountryFlagElement.src = countryFlagImageSources[countryID];
+}
+
+function updateCircleBackgroundOutline() {
+  var circleOutline1 = document.getElementById("drinkingWater2000Circle");
+  var circleOutline2 = document.getElementById("drinkingWater2022Circle");
+  var circleOutline3 = document.getElementById("sanitation2000Circle");
+  var circleOutline4 = document.getElementById("sanitation2022Circle");
+
+  // Update outline colour and level of background water
+  // drinking water in use 2000
+  if (drinkingWaterInUse2000 >= 75) {
+    circleOutline1.style.borderColor = "#00fff3"; // cyan
+    circleOutline1.style.backgroundPositionY = "0px";
+  }
+  else if (drinkingWaterInUse2000 < 50) {
+    circleOutline1.style.borderColor = "red"; // red
+    circleOutline1.style.backgroundPositionY = '150px';
+  }
+  else if (50 <= drinkingWaterInUse2000 && drinkingWaterInUse2000 < 75) {
+    circleOutline1.style.borderColor = "#e0a238"; // yellow-brown
+    circleOutline1.style.backgroundPositionY = "65px";
+  }
+  else {
+    circleOutline1.style.borderColor = "white";
+    circleOutline1.style.backgroundImage = 'none';
+  }
+
+  // drinking water in use 2022
+  if (drinkingWaterInUse2022 >= 75) {
+    circleOutline2.style.borderColor = "#00fff3"; // cyan
+    circleOutline2.style.backgroundPositionY = "0px";
+  }
+  else if (drinkingWaterInUse2022 < 50) {
+    circleOutline2.style.borderColor = "red"; // red
+    circleOutline2.style.backgroundPositionY = "180px";
+  }
+  else if (50 <= drinkingWaterInUse2000 && drinkingWaterInUse2000 < 75) {
+    circleOutline2.style.borderColor = "#e0a238"; // yellow-brown
+    circleOutline2.style.backgroundPositionY = "75px";
+  }
+  else {
+    circleOutline2.style.borderColor = "white";
+    circleOutline2.style.backgroundImage = 'none';
+  }
+
+  // sanitation 2000
+  if (sanitation2000 >= 75) {
+    circleOutline3.style.borderColor = "#00fff3"; // cyan
+    circleOutline3.style.backgroundPositionY = "0px";
+  }
+  else if (sanitation2000 < 50) {
+    circleOutline3.style.borderColor = "red"; // red
+    circleOutline3.style.backgroundPositionY = "150px";
+  }
+  else if (50 <= drinkingWaterInUse2000 && drinkingWaterInUse2000 < 75) {
+    circleOutline3.style.borderColor = "#e0a238"; // yellow-brown
+    circleOutline3.style.backgroundPositionY = "65px";
+  }
+  else {
+    circleOutline3.style.borderColor = "white";
+    circleOutline3.style.backgroundImage = 'none';
+  }
+
+  // sanitation 2022
+  if (sanitation2022 >= 75) {
+    circleOutline4.style.borderColor = "#00fff3"; // cyan
+    circleOutline4.style.backgroundPositionY = "0px";
+  }
+  else if (sanitation2022 < 50) {
+    circleOutline4.style.borderColor = "red"; // red
+    circleOutline4.style.backgroundPositionY = "180px";
+  }
+  else if (sanitation2022 >=50 && sanitation2022 < 75) {
+    circleOutline4.style.borderColor = "#e0a238"; // yellow-brown
+    circleOutline4.style.backgroundPositionY = "75px";
+  }
+  else {
+    circleOutline4.style.borderColor = "white";
+    circleOutline4.style.backgroundImage = 'none';
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+// WATER SAMPLES PAGES
+function displayWaterSample(linkId) {
+  // Store the ID of water catalogue sample clicked 
+  storedWaterId = linkId;
+  console.log("Stored water sample ID:", storedWaterId); 
+
+  // Move to the next page
+  document.getElementById('page2').classList.add('hidden');
+  document.getElementById('page3').classList.remove('hidden');
+
+  // Get data based on ID of sample selected
   getWaterData(storedWaterId);
 
+  // Update values displayed on webpage based on water sample data 
+  // (turbidity, pH, mineral and ion values)
   document.getElementById("zincVal").innerHTML = measureZinc;
   document.getElementById("ironVal").innerHTML = measureIron;
   document.getElementById("naclVal").innerHTML = measureSodiumChloride;
@@ -30,82 +309,16 @@ function storeLinkId(linkId) {
   document.getElementById("phVal").innerHTML = pHVal;
   document.getElementById("turbidityVal").innerHTML = turbidityVal;
 
-  var imageElement = document.getElementById('dynamicImage');
-  
-  // Define the image sources based on the variable value
-  var imageSources = {
-      "spanishBanks": 'Graphics/sensor/samples/spanish banks sample.png',
-      "householdTap": 'Graphics/sensor/samples/tap water - pH.jpeg',
-      'vanHarbour': 'Graphics/sensor/samples/harbour smaple.png',
-      "dirtLemon": 'Graphics/sensor/samples/eng sample - turbidity.jpeg'
-  };
+  updateWaterDisplayImg();
+  updateEcoliDisplay();
+  updatepHTurbidityDisplay();
+  updateMineralIonDisplay();
 
-  // Set the src attribute of the image element based on the variable value
-  imageElement.src = imageSources[storedWaterId];
-
-  var bacteriaElementBackground = document.getElementById('bacteriaBackground');
-  var bacteriaElementMark = document.getElementById('bacteriaMark');
-  var bacteriaElementCaption = document.getElementById('bacteriaCaption')
-
-  // ECOLI
-  if (ecoliBacteriaIndicator === -1) {
-    bacteriaElementBackground.classList.add("red-circle");
-    bacteriaElementMark.src = 'Graphics/x.png'
-    bacteriaElementCaption.textContent = "E.Coli bacteria detected!";
-  }
-  else {
-    bacteriaElementBackground.classList.add("green-circle");
-    bacteriaElementMark.src = 'Graphics/checkmark.png'
-  }
-
-  var movingElementpH = document.getElementById('movingpH');
-  var movingElementTur = document.getElementById('movingturbidity');
-  var movingElementpHNum = document.getElementById('movingpHNum');
-  var movingElementTurNum = document.getElementById('movingturbidityNum');
-  var nameOfSample = document.getElementById('nameSample');
-
-  if (storedWaterId === "spanishBanks") {
-    movingElementpH.style.left = '235px';
-    movingElementTur.style.left = '360px';
-    movingElementpHNum.style.left = '230px';
-    movingElementTurNum.style.left = '355px';
-
-    nameOfSample.textContent = "Spanish Banks Beach Water Sample";
-  }
-  else if (storedWaterId === "householdTap") {
-    movingElementpH.style.left = '265px';
-    movingElementTur.style.left = '620px';
-    movingElementpHNum.style.left = '260px';
-    movingElementTurNum.style.left = '615px';
-
-    nameOfSample.textContent = "Household Tap Water Sample";
-  }
-  else if (storedWaterId === "dirtLemon") {
-    movingElementpH.style.left = '180px';
-    movingElementTur.style.left = '-20px';
-    movingElementpHNum.style.left = '180px';
-    movingElementTurNum.style.left = '-25px';
-
-    nameOfSample.textContent = "Mystery Water Sample";
-  }
-  else if (storedWaterId === "vanHarbour") {
-    movingElementpH.style.left = '270px';
-    movingElementTur.style.left = '595px';
-    movingElementpHNum.style.left = '265px';
-    movingElementTurNum.style.left = '590px';
-
-    nameOfSample.textContent = "Vancouver Harbour Water Sample";
-  }
-
-
-
-  // MINERAL AND ION CONCENTRATION 
-  // if ...clour...
+  activateInstallation();
 }
 
-// Provide the data of water sample
+// WATER SAMPLE DATA 
 function getWaterData(waterID) {
-  // DATA:
   // 1. Spanish Banks
   if (waterID === "spanishBanks") {
       pHVal = 5.87;
@@ -124,8 +337,8 @@ function getWaterData(waterID) {
       measureSulfate = 0;
       measureNitrate = 0;
       measureNitrite = 0;
+      installationState = "middle";
   }
-  
   // 2. Household Tap Water
   else if (waterID === "householdTap") {
     pHVal = 6.24;
@@ -144,8 +357,8 @@ function getWaterData(waterID) {
     measureSulfate = 0;
     measureNitrate = 0;
     measureNitrite = 0;
+    installationState = "good";
   }
-  
   // 3. Vancouver Harbour
   else if (waterID === "vanHarbour") {
     pHVal = 6.35;
@@ -164,9 +377,9 @@ function getWaterData(waterID) {
     measureSulfate = 0;
     measureNitrate = 0;
     measureNitrite = 0;
+    installationState = "good";
   }
-  
-  // 4. DIRT AND LEMON
+  // 4. Mystery - Dirt and Lemon
   else if (waterID === "dirtLemon") {
     pHVal = 4.49;
     turbidityVal = 1;
@@ -184,9 +397,105 @@ function getWaterData(waterID) {
     measureSulfate = 0;
     measureNitrate = 0;
     measureNitrite  = 0;
+    installationState = "bad";
   }
   
-  // FALSE CREEK
-  // WRECK BEACH
-  // RAINWATER
+  // 5. Wreck Beach
+  // 6. Rainwater
+  // 7. 
+}
+
+// WATER SAMPLE DATA AND GRAPHICS DISPLAY 
+// Image of Water Sample in Container
+function updateWaterDisplayImg() {
+  // Updating water sample image displayed based on ID of sample clicked
+  var imageElement = document.getElementById('dynamicImage');
+  
+  // Define the image sources based on the variable value
+  var imageSources = {
+      "spanishBanks": 'Graphics/sensor/samples/spanish banks sample.png',
+      "householdTap": 'Graphics/sensor/samples/tap water - pH.jpeg',
+      'vanHarbour': 'Graphics/sensor/samples/harbour smaple.png',
+      "dirtLemon": 'Graphics/sensor/samples/eng sample - turbidity.jpeg'
+  };
+
+  // Set the src attribute of the image element based on the variable value
+  imageElement.src = imageSources[storedWaterId];
+}
+
+// E.Coli Data
+function updateEcoliDisplay() {
+  // Update E.Coli symbol displayed and its caption
+  var bacteriaElementBackground = document.getElementById('bacteriaBackground');
+  var bacteriaElementMark = document.getElementById('bacteriaMark');
+  var bacteriaElementCaption = document.getElementById('bacteriaCaption')
+
+  // If there is E.Coli present = red X
+  if (ecoliBacteriaIndicator === -1) {
+    bacteriaElementBackground.classList.add("red-circle");
+    bacteriaElementMark.src = 'Graphics/x.png'
+    bacteriaElementCaption.textContent = "E.Coli bacteria detected!";
+  }
+  // No E.Coli = green checkmark
+  else {
+    bacteriaElementBackground.classList.add("green-circle");
+    bacteriaElementMark.src = 'Graphics/checkmark.png'
+  }
+}
+
+// pH and Turbidity Scale and Value Display, Sample Name Display
+function updatepHTurbidityDisplay() {
+  // Update value and arrow and name of sample
+  var movingElementpH = document.getElementById('movingpH');
+  var movingElementpHNum = document.getElementById('movingpHNum');
+  var movingElementTur = document.getElementById('movingturbidity');
+  var movingElementTurNum = document.getElementById('movingturbidityNum');
+  var nameOfSample = document.getElementById('nameSample');
+
+  // Sample by sample positioning
+  // SPANISH BANKS
+  if (storedWaterId === "spanishBanks") {
+    movingElementpH.style.left = '235px';
+    movingElementTur.style.left = '360px';
+    movingElementpHNum.style.left = '230px';
+    movingElementTurNum.style.left = '355px';
+
+    nameOfSample.textContent = "Spanish Banks Beach Water Sample";
+  }
+
+  // TAP WATER
+  else if (storedWaterId === "householdTap") {
+    movingElementpH.style.left = '265px';
+    movingElementTur.style.left = '620px';
+    movingElementpHNum.style.left = '260px';
+    movingElementTurNum.style.left = '615px';
+
+    nameOfSample.textContent = "Household Tap Water Sample";
+  }
+
+  // MYSTERY 
+  else if (storedWaterId === "dirtLemon") {
+    movingElementpH.style.left = '180px';
+    movingElementTur.style.left = '-20px';
+    movingElementpHNum.style.left = '180px';
+    movingElementTurNum.style.left = '-25px';
+
+    nameOfSample.textContent = "Mystery Water Sample";
+  }
+
+  // VANCOUVER HARBOUR
+  else if (storedWaterId === "vanHarbour") {
+    movingElementpH.style.left = '270px';
+    movingElementTur.style.left = '595px';
+    movingElementpHNum.style.left = '265px';
+    movingElementTurNum.style.left = '590px';
+
+    nameOfSample.textContent = "Vancouver Harbour Water Sample";
+  }
+}
+
+// Mineral and Ion Values 
+  // if ...clour...
+function updateMineralIonDisplay() {
+
 }

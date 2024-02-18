@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+        <meta charset="'utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Light Water</title>
+        <link rel="stylesheet" href="main_styles.css">
+
+        <!--Link to Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Blinker&family=Livvic:ital,wght@1,100&family=Poiret+One&family=Raleway:wght@700&display=swap" rel="stylesheet">
+    </head>
+
+    <h2 style="color: cyan;">Welcome to the setup page for the Light Water installation.</h2>
+
+    <h2>Please set up the bluetooth connection: 
+        <button id="connectBleButton" style="font-size: 30px">Click this button!</button>
+    </h2>
+
+    <p class="main-text" style="text-align: center;">
+        You will be prompted by the browser to pair with available devices. Please select "esp32".
+    </p>
+    <img src="" alt="image showing how to connect to bluetooth">
+
+    <button onclick="redirectToPage('1_LandingPage.html')" style="font-size: 30px">Click this button to go to the installation interactive website when you are done.</button>
+
+    <footer>
+        <script src="bluetooth.js"></script>
+    </footer>
+</html>

@@ -19,6 +19,19 @@ body{
     padding: 10px;
 }
 
+.activateInstallationContainer {
+    width: 220px;
+    height: 50px;
+    border: 10px solid #12DF89;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #00ff00; /* Green glowing effect */
+    background-color: rgba(0, 255, 0, 0.3); /* Transparent green background */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-text{
     font-family: 'Blinker', sans-serif;
     text-align: justify;
@@ -276,7 +289,68 @@ h2{
     z-index: 1; /* Ensure the overlay is on top */
 }
 
-/* Activate Installation: Page 2 */
+/* Activate Installation: Global */
+
+/* Shapes */
+.circle-statistics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 280px;
+
+    background-color: rgba(146, 255, 235, 0.30);
+    background-image: url('Graphics/global/stats-cleanwater.png');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+    position: relative;
+    color: white;
+    text-shadow: 
+    -3px -3px 1px #000,  
+    3px -3px 1px #000,
+    -3px 3px 1px #000,
+    3px 3px 1px #000; /* Outline color */
+    font-family: 'Blinker', sans-serif;
+    font-size: 76px;
+    font-weight: 700;
+    border: 10px solid #12DF89;
+    box-sizing: border-box;
+    border-radius: 50%; /* Create a circle with 50% border-radius */
+}
+
+.small-circle-statistics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 210px;
+    height: 210px;
+    
+    background-repeat: no-repeat;
+    background-color: rgba(146, 255, 235, 0.30);
+    background-image: url('Graphics/global/stats-cleanwater.png');
+    background-size: cover;
+    background-position: top;
+    overflow: hidden;
+    position: relative;
+
+    color: white;
+    text-shadow: 
+    -3px -3px 1px #000,  
+    3px -3px 1px #000,
+    -3px 3px 1px #000,
+    3px 3px 1px #000; /* Outline color */
+    font-family: 'Blinker', sans-serif;
+    font-size: 76px;
+    font-weight: 700;
+    border: 10px solid #12DF89;
+    box-sizing: border-box;
+    border-radius: 50%; /* Create a circle with 50% border-radius */
+}
+
+
 /* Position of each country */
 .canada-container{
     position: absolute;
@@ -306,11 +380,10 @@ h2{
 }
 
 
-
 .japan-container{
     position: absolute;
-    top: 35%;
-    left: 75%;
+    top: 40%;
+    left: 85%;
     transform: rotate(-6.435deg);
     width: 125px;
     max-height: 1000px;
