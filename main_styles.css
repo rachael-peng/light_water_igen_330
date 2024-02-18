@@ -1,3 +1,37 @@
+/* Floating button for deactivation */
+#floatingButton {
+    position: fixed;
+    width: 290px;
+    height: 100px;
+    top: 5px;
+    right: 15px;
+    background-color: black;
+    box-shadow: 0 0 20px cyan; /* Green glowing effect */
+    border: 2px solid cyan;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    outline: none;
+    z-index: 9999;
+  }
+  
+  #floatingButton:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7);
+    animation: glow 1s infinite alternate;
+    color: cyan;
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+      box-shadow: 0 0 20px 6px rgba(255, 255, 255, 0.7);
+    }
+  }
 
 /* Text colors */
 .cyan{
@@ -87,6 +121,12 @@ a:hover {
     color: #0FF;
     text-decoration: none;
 }
+
+button:hover {
+    color: #0FF;
+    text-decoration: none;
+}
+
 
 button{
     background-color: #336F82;

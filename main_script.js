@@ -4,28 +4,74 @@ function redirectToPage(pageUrl) {
 }
 
 
-
-
-
 // INSTALLATION CONTROL 
+// Define BLE device specs 
+var deviceName ='ESP32';
+var bleService = '19b10000-e8f2-537e-4f6c-d104768a1214';
+var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
+
+// Global Variables
+var bleServer;
+var bleServiceFound;
+
+// Activate Installation
 function activateInstallation(installationState) {
-  resetInstallationState();
 
-  if (installationState === "bad") {
-
+  if (installationState === "good") {
+    writeOnCharacteristic(3);
   }
   else if (installationState === "middle") {
-
+    writeOnCharacteristic(2);
   }
-  else if (installationState === "good") {
-
+  else if (installationState === "bad") {
+    writeOnCharacteristic(1);
   }
+  else {
+    writeOnCharacteristic(0);
+  }
+}
 
-  
+// What value to write to ESP32
+function writeOnCharacteristic(value){
+  if (bleServer && bleServer.connected) {
+      bleServiceFound.getCharacteristic(ledCharacteristic)
+      .then(characteristic => {
+          console.log("Found the LED characteristic: ", characteristic.uuid);
+          const data = new Uint8Array([value]);
+          return characteristic.writeValue(data);
+      })
+      .then(() => {
+          console.log("Value written to LEDcharacteristic:", value);
+      })
+      .catch(error => {
+          console.error("Error writing to the LED characteristic: ", error);
+      });
+  } else {
+      console.error ("Bluetooth is not connected. Cannot write to characteristic.")
+      window.alert("Bluetooth is not connected. Cannot write to characteristic. \n Connect to BLE first!")
+  }
 }
 
 /// Turn off all lights and motors
-function resetInstallationState() {
+function deactivateInstallation() {
+  // Store in local storage that the button has been clicked
+  localStorage.setItem("deactivateClicked", true);
+  document.getElementById('floatingButton').style.display = 'none';
+
+  writeOnCharacteristic(0);
+}
+
+// ALWAYS RUN AT BEGINNING
+// Determine visibility of deactivate button
+document.addEventListener("DOMContentLoaded", function() {
+  if (localStorage.getItem("deactivateClicked") === "true") {
+    document.getElementById("floatingButton").style.display = "none";
+}});
+
+// If on sensor or global data selection page: 
+if (window.location.pathname.endsWith("AI.html")) {
+  // Make "deactivate" button unclicked
+  localStorage.setItem("deactivateClicked", false);
 }
 
 
