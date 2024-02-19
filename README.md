@@ -1,4 +1,7 @@
 # light_water_igen_330
+
+Try out the website here: https://rachael-peng.github.io/light_water_igen_330/
+
 Code for Light Water engineering/art installation for IGEN 330 project course.
 
 <img width="1434" alt="Screen Shot 2024-02-17 at 5 37 52 PM" src="https://github.com/rachael-peng/light_water_igen_330/assets/127054400/003abdc8-2ef0-41f3-8a55-1d8ed10306b1">
