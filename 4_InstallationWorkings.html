@@ -16,49 +16,106 @@
 
     <body>
       <nav>
-        <nav>
-          <button onclick="redirectToPage('3_AboutProject.html')">
-              <table>
-                  <tr>
-                    <td style="padding: 10px"><img src="Graphics/info.png" alt="Info icon"></td>
-                    <td><a href="#">About the Project</a></td>
-                  </tr>
-                </table>
-          </button>
-          <button onclick="redirectToPage('4_InstallationWorkings.html')">
-              <table>
-                  <tr>
-                    <td style="padding: 10px"><img src="Graphics/gear.png" alt="Gear icon"></td>
-                    <td><a href="#">Installation Workings</a></td>
-                  </tr>
-                </table>
-          </button>
-          <button onclick="redirectToPage('6_UNSDG6.html')">
-              <table>
-                  <tr>
-                    <td style="padding: 10px"><img src="Graphics/Sustainable_Development_Goal_6-removebg-preview.png" alt="SDG6 icon"></td>
-                    <td><a href="#">UN SDG 6</a></td>
-                  </tr>
-                </table>
-          </button>
-          <button onclick="redirectToPage('7_ActivateInstallation.html')">
-              <table>
-                  <tr>
-                    <td style="padding: 10px"><img src="Graphics/activate.png" alt="Hand pressing a button icon"></td>
-                    <td class="activateInstallationContainer"><a href="#">Activate Installation</a></td>
-                  </tr>
-                </table>
-          </button>
-        </nav>
+        <button onclick="redirectToPage('3_AboutProject.html')">
+            <table>
+                <tr>
+                  <td style="padding: 10px"><img src="Graphics/info.png" alt="Info icon"></td>
+                  <td><a href="#">About the Project</a></td>
+                </tr>
+              </table>
+        </button>
+        <button onclick="redirectToPage('4_InstallationWorkings.html')">
+            <table>
+                <tr>
+                  <td style="padding: 10px"><img src="Graphics/gear.png" alt="Gear icon"></td>
+                  <td><a href="#">Installation Workings</a></td>
+                </tr>
+              </table>
+        </button>
+        <button onclick="redirectToPage('6_UNSDG6.html')">
+            <table>
+                <tr>
+                  <td style="padding: 10px"><img src="Graphics/Sustainable_Development_Goal_6-removebg-preview.png" alt="SDG6 icon"></td>
+                  <td><a href="#">UN SDG 6</a></td>
+                </tr>
+              </table>
+        </button>
+        <button onclick="redirectToPage('7_ActivateInstallation.html')">
+            <table>
+                <tr>
+                  <td style="padding: 10px"><img src="Graphics/activate.png" alt="Hand pressing a button icon"></td>
+                  <td class="activateInstallationContainer"><a href="#">Activate Installation</a></td>
+                </tr>
+              </table>
+        </button>
+      </nav>
         <main>
-            <p>Coming soon...</p>
-        </main>
+            <table>
+              <tr>
+                <td>
+                  <h2 style="color:#12DF89; padding: 20px">How was the Installation Built? How Does it Work?</h2>
+                </td>
+                <td>
+                  <img src="Graphics/installation workings/main photo.png" style="padding: 20px; width: 700px; max-height: 1000px; border-left: 2px solid #12DF89">
+                </td>
+              </tr>
+          </table>
 
+          <!--GRID-->
 
-        <div style="font-family: 'Raleway', sans-serif;" id="floatingButton" onclick="deactivateInstallation()">Click me to deactivate installation
-          <span style="font-size: 20px">(Turn off the lights and motion)</span></div>
+          <div class="grid-container">
+            <div class="grid-item" data-label="1">
+              <div class="back-arrow"></div>
+              <div class="content"><h2>LED Lights</h2></div>
+              <div class="more-text">Additional text for 1</div>
+            </div>
+            <div class="grid-item" data-label="2">
+              <div class="back-arrow"></div>
+              <div class="content"><h2>Web Application</h2></div>
+              <div class="more-text">Additional text for 2</div>
+            </div>
+            <div class="grid-item" data-label="3">
+              <div class="back-arrow"></div>
+              <div class="content"><h2>Plywood and Aluminum Frame</h2></div>
+              <div class="more-text">Additional text for 3</div>
+            </div>
+            <div class="grid-item" data-label="4">
+              <div class="back-arrow"></div>
+              <div class="content"><h2>Water Bottle Motion</h2></div>
+              <div class="more-text">Additional text for 4</div>
+            </div>
+            <div class="grid-item" data-label="5">
+              <div class="back-arrow"></div>
+              <div class="content"><h2>Water Sample Testing</h2></div>
+              <div class="more-text">Additional text for 5</div>
+            </div>
+            <div class="grid-item" data-label="6">
+              <div class="back-arrow"></div>
+              <div class="content"><h2>Edge-Lit Acrylic Pieces</h2></div>
+              <div class="more-text">Additional text for 6</div>
+            </div>
+          </div>
+
+      </main>
+
+      <div style="font-family: 'Raleway', sans-serif;" id="floatingButton" onclick="deactivateInstallation()">Click me to deactivate installation
+        <span style="font-size: 20px">(Turn off the lights and motion)</span></div>
+    
+      <script>
+        document.querySelectorAll('.grid-item').forEach(item => {
+          item.addEventListener('click', () => {
+            item.classList.toggle('flipped');
+          });
+          
+          const backArrow = item.querySelector('.back-arrow');
+          backArrow.addEventListener('click', (e) => {
+            e.stopPropagation();
+            item.classList.remove('flipped');
+          });
+        });
+      </script>
     </body>
     <footer>
-        <a href="#" class="return-landing" onclick="redirectToPage('index.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
+        <a href="#" onclick="redirectToPage('index.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
     </footer>
 </html>

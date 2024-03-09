@@ -1,7 +1,7 @@
 /* Floating button for deactivation */
 #floatingButton {
     position: fixed;
-    width: 290px;
+    width: 300px;
     height: 100px;
     top: 5px;
     right: 15px;
@@ -89,7 +89,6 @@ nav{
     border-spacing: 50px;
     justify-content: center;
     align-items: center;
-
     gap: 85px;
 
     background-color: #336F82;
@@ -494,3 +493,56 @@ h2{
     max-height: 1000px;
 }
 
+
+
+
+
+/* Installation workings */
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    max-width: 1350px;
+    margin: 20px auto;
+  }
+  
+  .grid-item {
+    background-color:#00B2FF;
+    border: white 2px solid;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .grid-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .grid-item .back-arrow {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    display: none;
+  }
+  
+  .grid-item.flipped .back-arrow {
+    display: block;
+  }
+  
+  .grid-item .back-arrow:before {
+    content: "<-- Click to return";
+    font-size: 20px;
+  }
+  
+  .grid-item .more-text {
+    display: none;
+    margin-top: 10px;
+  }
+  
+  .grid-item.flipped .more-text {
+    display: block;
+  }
