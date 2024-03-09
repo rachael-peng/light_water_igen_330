@@ -86,9 +86,11 @@ body{
 nav{
     display: flex;
     padding: 10px 25px;
+    border-spacing: 50px;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+
+    gap: 85px;
 
     background-color: #336F82;
     border: 2px solid #FFF;
