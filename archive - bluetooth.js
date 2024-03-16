@@ -14,6 +14,9 @@ connectButton.addEventListener('click', (event) => {
   if (isWebBluetoothEnabled()){
     connectToDevice();
   }
+
+  // Then immediately activate installation
+  activateInstallation();
 });
 
 // searches for esp32 BLE Device, its Service and Characteristics.

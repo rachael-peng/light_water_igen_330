@@ -53,10 +53,10 @@
       <main id="page2">
         <table>
           <tr>
-              <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
+              <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; ">
                   <div class="circle-number">2</div></td>
               <td>
-                  <h2 style="color: #12DF89; text-align: left;">
+                  <h2 style="color: #12DF89; text-align: left; border-bottom: 2px solid #12DF89">
                       Select a water sample you'd like to investigate.
                   </h2>
               </td>
@@ -149,12 +149,57 @@
               <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
                   <div class="circle-number">3</div></td>
               <td>
+                  <h2 style="color: #12DF89; text-align: left; border-bottom: 2px solid #12DF89">
+                    Setup Bluetooth Connection
+                  </h2>
+              </td>
+          </tr>
+        </table>
+        <div>
+          <p class="main-text" style="text-align: center; padding-left: 50px; padding-right: 50px">
+            In order to activate the installation, we need to pair the current device this website is operating on with the installation's microcontroller via a 
+            Bluetooth connection.
+          </p>
+          <p class="main-text" style="text-align: center; padding-left: 50px; padding-right: 50px">
+              Please click the button below to do so. You will be prompted by the browser to pair with available devices. Please select "<span style="color:#12DF89 ">ESP32</span>."
+          </p>
+          <button id="connectBleButton" style="font-size: 30px; max-height: 100px; max-width: 600px" class="activate-button">Click me to connect to bluetooth!</button>
+          
+          <img src="" alt="image showing how to connect to bluetooth">
+          
+          <h2>Bluetooth Connection State: <strong><span style="color: red" id="bleState">Currently Disconnected</span></strong></h2>
+        </div>
+        <table>
+          <tr>
+              <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
+                  <div class="circle-number">4</div></td>
+              <td>
+                  <h2 style="color: #12DF89; text-align: left; border-bottom: 2px solid #12DF89">
+                    Activate Installation:
+                  </h2>
+              </td>
+              <td style="padding-left: 20px; ">
+                <button id="activateInstallationButton" style="font-size: 30px; max-height: 50px; max-width: 180px" class="activate-button">Click me!</button>
+              </td>
+          </tr>
+        </table>
+        
+      </main>
+
+      <!--PAGE 4-->
+      <main id="page4" class="hidden">
+        <table>
+          <tr>
+              <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
+                  <div class="circle-number">5</div></td>
+              <td>
                   <h2 style="color: #12DF89; text-align: left;">
                     <span style="color: cyan">Installation Activated! </span>Let's take a closer look at the water sample.
                   </h2>
               </td>
           </tr>
         </table>
+        
 
         <!--DATA DISPLAY-->
         <table>
@@ -221,8 +266,12 @@
               </h2>
               <p class="main-text">
                 pH is the measure of how acidic or basic a substance is. 
-                It ranges from 0 to 14, with 0 being extremely acidic, 14 being highly basic, 
-                and 7 being neutral. 
+                pH indicates the concentration of hydrogen ions present in water. The pH scale ranges from 0 to 14, 
+                with values below 7 indicating acidity. Low pH levels can corrode pipes, potentially leaching harmful metals 
+                such as lead into drinking water, which poses serious health risks. Conversely, pH levels above 7, 
+                indicating alkalinity, can lead to a bitter taste and mineral buildup in pipes, affecting water quality. 
+                Monitoring pH levels is essential for ensuring safe drinking water and minimizing health hazards associated with 
+                waterborne contaminants, thereby safeguarding public health.
               </p>
               <p class="main-text">
                 The ideal pH for drinking water is generally around 7,
@@ -245,8 +294,11 @@
                 What is Turbidity?
               </h2>
               <p class="main-text">
-                dfihgjeh jjkefj hkasjhk jhk shj wpoewo sfbn iuds fdnf ksjk jkdsjkfhjk sjhkdhfjkjshk djhkfjkhsjhkdfjkhshjkdjkf jhksjkdfjksjhkdjfj hs jhk
-              </p>
+                Turbidity is a measure of water clarity, indicating the presence of suspended 
+                particles such as sediment, algae, or pollutants. It's measured on a scale from 0 to 100% turbid, 
+                reflecting the water's clarity. High turbidity levels can suggest contamination, possibly including
+                 harmful pathogens like bacteria and viruses, raising the risk of waterborne illnesses if consumed. 
+                 Monitoring turbidity is crucial for protecting public health and ensuring access to clean, safe drinking water.              </p>
             </td>
           </tr>
         </table>
@@ -287,14 +339,12 @@
             
         </div>
 
-        <h2 style="color: #12DF89">
+        <!-- <h2 style="color: #12DF89">
           Keep in mind...
         </h2>
         <p class="main-text">
-          Evaluating the potability of a water sample involves many parameters 
-          which we have not implemented here, such as testing for harmful bacteria 
-          like E. Coli.  <more explanation> If the absence of other harmful health factor, basing water quality solely on these 2 parameters, we can preliminary predict that... 
-        </p>
+          Evaluating the drinkability of a water sample involves many parameters which we have not implemented here. What we have performed are prelimniary meas
+        </p> -->
       
         <div style="font-family: 'Raleway', sans-serif;" id="floatingButton" onclick="deactivateInstallation()">Click me to deactivate installation
           <span style="font-size: 20px">(Turn off the lights and motion)</span></div>

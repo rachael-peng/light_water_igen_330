@@ -14,6 +14,61 @@ var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
 var bleServer;
 var bleServiceFound;
 
+// CONNECT TO BLUETOOTH PROCEDURE
+const connectButton = document.getElementById('connectBleButton');
+const bleStateContainer = document.getElementById('bleState');
+
+// Connect Button + Activate installation 
+connectButton.addEventListener('click', (event) => {
+  if (isWebBluetoothEnabled()){
+    connectToDevice();
+  }
+});
+
+// searches for esp32 BLE Device, its Service and Characteristics.
+function connectToDevice(){
+  navigator.bluetooth.requestDevice({
+    filters: [{name: deviceName}],
+    optionalServices: [bleService]
+})
+.then(device => {
+  console.log('Device Selected:', device.name);
+  bleStateContainer.innerHTML = 'Connected to Installation ' + device.name;
+  bleStateContainer.style.color = "#24af37";
+  device.addEventListener('gattservicedisconnected', onDisconnected);
+  return device.gatt.connect();
+})
+.then(gattServer =>{
+  bleServer = gattServer;
+  console.log("Connected to GATT Server");
+  return bleServer.getPrimaryService(bleService);
+})
+.then(service => {
+  bleServiceFound = service;
+  console.log("Service discovered:", service.uuid);
+})
+}
+
+// Check if BLE is available in browser - print message in console
+function isWebBluetoothEnabled() {
+  if (!navigator.bluetooth) {
+      console.log("Web Bluetooth API is not available in this browser!");
+       bleStateContainer.innerHTML = "Web Bluetooth API is not available in this browser/device!";
+       return false
+  }
+  console.log('Web Bluetooth API supported in this browser.');
+  return true
+}
+
+// ACTIVATE INSTALATION
+activateButton = document.getElementById('activateInstallationButton');
+activateButton.addEventListener('click', (event) => {
+  activateInstallation();
+
+  document.getElementById('page3').classList.add('hidden');
+  document.getElementById('page4').classList.remove('hidden');
+});
+
 // Activate Installation
 function activateInstallation(installationState) {
 
@@ -61,6 +116,7 @@ function deactivateInstallation() {
   writeOnCharacteristic(0);
 }
 
+
 // ALWAYS RUN AT BEGINNING
 // Determine visibility of deactivate button
 document.addEventListener("DOMContentLoaded", function() {
@@ -95,7 +151,6 @@ function displayCountryData(linkID) {
   updateCountryShapeFlagImage(storedCountryID);
   updateCircleBackgroundOutline();
 
-  activateInstallation();
 }
 
 // COUNTRY STATISTICS/DATA 
@@ -325,7 +380,13 @@ function updateCircleBackgroundOutline() {
 
 
 // WATER SAMPLES PAGES
+
+class waterSamples {
+  
+}
+
 function displayWaterSample(linkId) {
+  
   // Store the ID of water catalogue sample clicked 
   storedWaterId = linkId;
   console.log("Stored water sample ID:", storedWaterId); 
@@ -359,8 +420,6 @@ function displayWaterSample(linkId) {
   updateEcoliDisplay();
   updatepHTurbidityDisplay();
   updateMineralIonDisplay();
-
-  activateInstallation();
 }
 
 // WATER SAMPLE DATA 
