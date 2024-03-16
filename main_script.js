@@ -35,7 +35,7 @@ function connectToDevice(){
   console.log('Device Selected:', device.name);
   bleStateContainer.innerHTML = 'Connected to Installation ' + device.name;
   bleStateContainer.style.color = "#24af37";
-  device.addEventListener('gattservicedisconnected', onDisconnected);
+  // device.addEventListener('gattservicedisconnected', onDisconnected);
   return device.gatt.connect();
 })
 .then(gattServer =>{
@@ -61,24 +61,24 @@ function isWebBluetoothEnabled() {
 }
 
 // ACTIVATE INSTALATION
-activateButton = document.getElementById('activateInstallationButton');
-activateButton.addEventListener('click', (event) => {
-  activateInstallation();
+const activateButton = document.getElementById('activateInstallationButton');
+activateButton.addEventListener('click', (event) => { 
+  activateInstallation(installationState);
 
   document.getElementById('page3').classList.add('hidden');
   document.getElementById('page4').classList.remove('hidden');
 });
 
 // Activate Installation
-function activateInstallation(installationState) {
+function activateInstallation(installationStateParam) {
 
-  if (installationState === "good") {
+  if (installationStateParam === "good") {
     writeOnCharacteristic(3);
   }
-  else if (installationState === "middle") {
+  else if (installationStateParam === "middle") {
     writeOnCharacteristic(2);
   }
-  else if (installationState === "bad") {
+  else if (installationStateParam === "bad") {
     writeOnCharacteristic(1);
   }
   else {
@@ -107,30 +107,28 @@ function writeOnCharacteristic(value){
   }
 }
 
-/// Turn off all lights and motors
-function deactivateInstallation() {
-  // Store in local storage that the button has been clicked
-  localStorage.setItem("deactivateClicked", true);
-  document.getElementById('floatingButton').style.display = 'none';
+// /// Turn off all lights and motors
+// function deactivateInstallation() {
+//   // Store in local storage that the button has been clicked
+//   localStorage.setItem("deactivateClicked", true);
+//   document.getElementById('floatingButton').style.display = 'none';
 
-  writeOnCharacteristic(0);
-}
-
-
-// ALWAYS RUN AT BEGINNING
-// Determine visibility of deactivate button
-document.addEventListener("DOMContentLoaded", function() {
-  if (localStorage.getItem("deactivateClicked") === "true") {
-    document.getElementById("floatingButton").style.display = "none";
-}});
-
-// If on sensor or global data selection page: 
-if (window.location.pathname.endsWith("AI.html")) {
-  // Make "deactivate" button unclicked
-  localStorage.setItem("deactivateClicked", false);
-}
+//   writeOnCharacteristic(0);
+// }
 
 
+// // ALWAYS RUN AT BEGINNING
+// // Determine visibility of deactivate button
+// document.addEventListener("DOMContentLoaded", function() {
+//   if (localStorage.getItem("deactivateClicked") === "true") {
+//     document.getElementById("floatingButton").style.display = "none";
+// }});
+
+// // If on sensor or global data selection page: 
+// if (window.location.pathname.endsWith("AI.html")) {
+//   // Make "deactivate" button unclicked
+//   localStorage.setItem("deactivateClicked", false);
+// }
 
 
 
@@ -374,17 +372,7 @@ function updateCircleBackgroundOutline() {
 
 
 
-
-
-
-
-
 // WATER SAMPLES PAGES
-
-class waterSamples {
-  
-}
-
 function displayWaterSample(linkId) {
   
   // Store the ID of water catalogue sample clicked 

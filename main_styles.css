@@ -508,8 +508,8 @@ h2{
   }
   
   .grid-item {
-    background-color:#00B2FF;
-    border: white 2px solid;
+    background-color: black;
+    border: #12DF89 5px solid;
     padding: 20px;
     text-align: center;
     transition: transform 0.3s;
@@ -534,7 +534,7 @@ h2{
   }
   
   .grid-item .back-arrow:before {
-    content: "<-- Click to return";
+    content: "Click anywhere to flip back";
     font-size: 20px;
   }
   
