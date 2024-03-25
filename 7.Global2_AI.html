@@ -126,16 +126,28 @@
             </tr>
           </table>
           <div>
-            <p class="main-text" style="text-align: center; padding-left: 50px; padding-right: 50px">
-              In order to activate the installation, we need to pair the current device this website is operating on with the installation's microcontroller via a 
-              Bluetooth connection.
-            </p>
-            <p class="main-text" style="text-align: center; padding-left: 50px; padding-right: 50px">
-                Please click the button below to do so. You will be prompted by the browser to pair with available devices. Please select "<span style="color:#12DF89 ">ESP32</span>."
-            </p>
-            <button id="connectBleButton" style="font-size: 30px; max-height: 100px; max-width: 600px" class="activate-button">Click me to connect to bluetooth!</button>
-            <img src="" alt="image showing how to connect to bluetooth">
-            <h2>Bluetooth Connection State: <strong><span style="color: red" id="bleState">Currently Disconnected</span></strong></h2>
+            <table>
+              <tr>
+                <td>
+                  <p class="main-text" style="padding-left: 50px; padding-right: 50px">
+                    In order to activate the installation, we need to pair the current device this website is operating on with the installation's microcontroller via a 
+                    Bluetooth connection.
+                  </p>
+                  <p class="main-text" style="padding-left: 50px; padding-right: 50px">
+                    Please click the button below to do so. You will be prompted by the browser to pair with available devices. Please select "<span style="color:#12DF89 ">ESP32</span>."
+                  </p>
+                  <p class="main-text" style="padding-left: 50px;">
+                    Bluetooth Connection State: <strong><span style="color: red" id="bleState">
+                      Currently Disconnected</span></strong>
+                  </p>
+                  <button id="connectBleButton" style="background-color: black; max-height: 50px; max-width: 700px" class="activate-button">Click me to connect to bluetooth!</button>
+                </td>
+                <td>
+                  <img style="padding-right: 50px; width: 500px; max-height: 1000px" src="Graphics/bluetoothPhoto.png">
+                </td>
+              </tr>
+            </table>          
+            
           </div>
           <table>
             <tr>
@@ -147,7 +159,7 @@
                     </h2>
                 </td>
                 <td style="padding-left: 20px; ">
-                  <button id="activateInstallationButton" style="font-size: 30px; max-height: 50px; max-width: 180px" class="activate-button">Click me!</button>
+                  <button id="activateInstallationButton" style="background-color: black; max-height: 50px; max-width: 240px" class="activate-button">Click me to activate!</button>
                 </td>
             </tr>
           </table>
@@ -164,7 +176,9 @@
                 <tr>
                     <td><div class="circle-number">3</div></td>
                     <td>
-                      <h2 style="padding-left: 20px; color: #12DF89"><span style="color: cyan">Installation Activated! </span>
+                      <h2 style="padding-left: 20px; color: #12DF89; border-bottom: 2px solid #12DF89;">
+                        <span style="color: cyan ">
+                        Installation Activated! </span>
                         Let's take a closer look at the country data.</h2>
                     </td>
                 </tr>
@@ -226,6 +240,7 @@
         </main>
     </body>
     <footer>
+      <audio id="music" preload="auto"></audio>
       <script src="main_script.js"></script>
     </footer>
 </html>

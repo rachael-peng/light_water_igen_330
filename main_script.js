@@ -3,7 +3,6 @@ function redirectToPage(pageUrl) {
     window.location.href = pageUrl;
 }
 
-
 // INSTALLATION CONTROL 
 // Define BLE device specs 
 var deviceName ='ESP32';
@@ -13,6 +12,8 @@ var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
 // Global Variables
 var bleServer;
 var bleServiceFound;
+// Music
+var music = document.getElementById('music');
 
 // CONNECT TO BLUETOOTH PROCEDURE
 const connectButton = document.getElementById('connectBleButton');
@@ -71,15 +72,23 @@ activateButton.addEventListener('click', (event) => {
 
 // Activate Installation
 function activateInstallation(installationStateParam) {
+  music.pause(); // first pause previous music
 
   if (installationStateParam === "good") {
     writeOnCharacteristic(3);
+    var musicSource = 'greatWaterAudio.mp3';
+    music.src = musicSource;
+    music.play();
   }
   else if (installationStateParam === "middle") {
     writeOnCharacteristic(2);
+    music.src = 'fineWaterAudio.mp3';
+    music.play();
   }
   else if (installationStateParam === "bad") {
     writeOnCharacteristic(1);
+    music.src = 'badWaterAudio.mp3';
+    music.play();
   }
   else {
     writeOnCharacteristic(0);
@@ -106,6 +115,7 @@ function writeOnCharacteristic(value){
       window.alert("Bluetooth is not connected. Cannot write to characteristic. \n Connect to BLE first!")
   }
 }
+
 
 // /// Turn off all lights and motors
 // function deactivateInstallation() {

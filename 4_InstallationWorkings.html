@@ -50,35 +50,47 @@
         </button>
       </nav>
         <main>
-            <table>
-              <tr>
-                <td>
-                  <h2 style="color:#12DF89; padding: 20px">How was the Installation Built? How Does it Work?</h2>
-                </td>
-                <td>
-                  <img src="Graphics/installation workings/main photo.png" style="padding: 20px; width: 700px; max-height: 1000px; border-left: 2px solid #12DF89">
-                </td>
-              </tr>
-          </table>
+          <h2 style="color:#12DF89; padding-bottom: 20px; border-bottom: 2px solid #12DF89">Explore how our installation came to life:</h2>
 
           <!--GRID-->
-          <!--LEDS-->
+          
           <div class="grid-container">
+            <!--LEDS-->
             <div class="grid-item" data-label="LED Lights">
               <div class="back-arrow"></div>
-              <div class="content"><h2>LED Lights</h2></div>
+              <div class="content">
+                <h2>LED Lights</h2>
+                <img style="width: 250px; max-height: 600px" src="Graphics/installation workings/blue.png">
+                <img style="width: 250px; max-height: 600px" src="Graphics/installation workings/yellow.png">
+                <img style="width: 250px; max-height: 600px; padding-bottom: 20px" src="Graphics/installation workings/red.png">
+              </div>
               <div class="more-text">
                 <p class="main-text">
                   We used LED lights wrapped around hanging bottles to attract viewers to come and explore our installation, as well as reinforce the 
-                  connection to drinking water. The LEDs are arranged so that they face the inside of the water bottle. This arrangement improves the 
+                  connection to drinking water. 
+                </p>
+                <p class="main-text">
+                  The LEDs are arranged so that they face the inside of the water bottle. This arrangement improves the 
                   aesthetic in addition to optimizing the light's visibility within the bottles. Because of their adaptability and simplicity, the LED strips are 
                   used to create complex designs and animations. 
                 </p>
                 <p class="main-text">
-                  Water quality is shown in three categories: a blue color and slow wave motion to represent a great water quality, 
-                  a yellow-orange color and medium wave animation to represent fine water quality, and a red color and quick wave animation to represent
-                  a bad water quality. The color and speed of light animation are key components differing each state of water quality. 
-                  This design was created in response to public feedback, making sure that color and motion efficiently and clearly express quality of water data.
+                  Water quality is shown in three categories: 
+                  <ul class="main-text">
+                    <li style="color: rgb(0, 149, 255)">
+                      a blue color and slow wave motion to represent a great water quality, 
+                    </li>
+                    <li style="color: yellow">
+                      a yellow-orange color and medium wave animation to represent fine water quality,
+                    </li>
+                    <li style="color: rgb(255, 37, 37)">
+                      and a red color and quick wave animation to represent a bad water quality.
+                    </li>
+                  </ul>
+                </p>
+                <p class="main-text">
+                    The color and speed of light animation are key components differing each state of water quality.  
+                    This design was created in response to public feedback, making sure that color and motion efficiently and clearly express quality of water data.
                 </p>
 
               </div>
@@ -89,43 +101,44 @@
               <div class="back-arrow"></div>
               <div class="content">
                 <h2>Web Application</h2>
-                <img style="width: 600px; max-height: 1000px" src="Graphics/installation workings/webAppPic.png">
+                <img style="padding-bottom: 15px; width: 600px; max-height: 1000px" src="Graphics/installation workings/webAppPic.png">
               </div>
               <div class="more-text">
                 <p class="main-text">
                   The web application brings all of the installation components together as a centre of control, providing both installation control and static content. 
-                  It is coded with the languages HTML, CSS, and JavaScript, comprising a current total of more than 2100 lines of code!
+                  It is coded with the languages <span style="color: cyan">HTML, CSS, and JavaScript</span>, comprising a current total of more than <span style="color: cyan">2000</span> lines of code!
                 </p>
                 <img style="width: 600px; max-height: 1000px" src="Graphics/installation workings/userFlowDiagram.png" alt="userFlowDiagram">
                 <p class="main-text">
                   The static content serves to provide a deeper dive on educational information around engineering and sustainability through graphics and written content. 
-                  This comprises the sections on About the Project, Installation Workings (the tab you are currently on!), and UN Sustainable Development Goal (SDG) Number 6. 
+                  This comprises the sections on <span style="color: cyan">About the Project, Installation Workings</span> and <span style="color: cyan">UN Sustainable Development Goal (SDG) Number 6.</span> 
                 </p>
                 <p class="main-text">
-                  The active content corresponds to the Installation Control tab. Users can choose to explore drinkable water quality data from a catalogue of water samples 
+                  The active content corresponds to the <span style="color: cyan">Installation Control</span> tab. Users can choose to explore drinkable water quality data from a catalogue of water samples 
                   we tested or from a country catalogue based on global statistics. The installation lights and motion (colours, frequency of oscillation, etc.) are 
                   activated according to the quality of data selected, which is determined by the following algorithm:
                 </p>
                 <table>
                   <tr style="border: 2px solid cyan;">
                     <td style="border: 2px solid cyan;">
-                      <h2>Water Sample Data</h2>
+                      <h2 style="color:#12DF89">Water Sample Data</h2>
                     </td>
                     <td>
-                      <h2>Global Statistics Data</h2>
+                      <h2 style="color:#12DF89">Global Statistics Data</h2>
                     </td>
                   </tr>
                   <tr style="border: 2px solid cyan;">
                     <td style="border: 2px solid cyan;">
                       <p class="main-text">
                         Determination of each sample’s water quality is based on if any of the following parameters are present or in the indicated range.  
-                        If any parameters are out of range/present = bad water quality. If no parameters out of range/absent = great water quality. 
+                        If any parameters are out of range/present = <span style="color: red">bad water quality</span>. If no parameters out of range/absent 
+                        = <span style="color:rgb(0, 221, 255)">great water quality</span>. 
                         <ul class="main-text">
                           <li>
                             pH > 8 or < 6
                           </li>
                           <li>
-                            Turbidity > 5% (where 0%: being clear water, 100%: being turbid water)
+                            Turbidity > 5% (where 0%: being clear water, 100%: being turbid/opaque water)
                           </li>
                           <li>
                             Presence of E.Coli
@@ -138,13 +151,13 @@
                         Let the average of the percentage of population with safely managed drinking water in use in 2022 and percentage of population with 
                         access to safely managed sanitation in 2022 = score.
                         <ul class="main-text">
-                          <li>
+                          <li style="color: rgb(0, 221, 255)">
                             If score >= 75: great water quality 
                           </li>
-                          <li>
+                          <li style="color: yellow">
                             If 50 =< score < 75: fine water quality 
                           </li>
-                          <li>
+                          <li style="color: red">
                             If score < 50: bad water quality
                           </li>
                         </ul>
@@ -153,8 +166,9 @@
                   </tr>
                 </table>
                 <p class="main-text">
-                  The web app communicates with the installation microcontroller via Web Bluetooth (BLE) protocal. Code to implement this is written in both the JavaScript portion 
-                  of the web app and as uploaded in C++ code to the microcontroller. This allows us to incorporate control the LED lights and water bottle motion.
+                  The web app communicates with the installation microcontroller via <span style="color: cyan">Web Bluetooth (BLE)</span> protocol. 
+                  Code to implement this is written in both the JavaScript portion of the web app and as uploaded in <span style="color: cyan">C++ code</span> to the 
+                  microcontroller. This allows us to incorporate control the LED lights and water bottle motion.
                 </p>
               </div>
             </div>
@@ -162,28 +176,47 @@
             <!--FRAME-->
             <div class="grid-item" data-label="Plywood and Aluminum Fram">
               <div class="back-arrow"></div>
-              <div class="content"><h2>Plywood and Aluminum Frame</h2></div>
+              <div class="content">
+                <h2>Plywood and Aluminum Frame</h2>
+                <img style="padding-bottom: 15px; width: 350px; max-height: 1000px" src="Graphics/installation workings/frame.jpeg">
+              </div>
               <div class="more-text">
-                <img style="width: 600px; max-height: 1000px" src="Graphics/installation workings/frameOutline.png">
+                <p class="main-text">
+                  The frame is constructed using <span style="color: cyan">plywood and T-slot aluminum extrusion rods</span>. For structural integrity, we have chosen to go with a sawhorse design 
+                  using the aluminum rods, as we wanted to provide as much structural rigidity as possible for safety and robustness.. The supporting legs are attached to the middle connecting beam 
+                  using metal sheets and will be secured to the plywood base in the same way. 
+                </p>
+                <p class="main-text">
+                  The plywood box base is hinged and hollow, allowing for storage of the aluminum rob, the upper frame, and all other design components (ie. motors, 
+                  hanging bottles, etc.) when diassembled. This makes the entire installation easy to transport. 
+                </p>
+                <img style="width: 300px; max-height: 1000px" src="Graphics/installation workings/frameClosed.jpeg">
+                <img style="width: 300px; max-height: 1000px" src="Graphics/installation workings/frameOpen.jpeg">
               </div>
             </div>
 
             <!--SERVOS MOTION-->
             <div class="grid-item" data-label="Servos and Motion">
               <div class="back-arrow"></div>
-              <div class="content"><h2>Servos and Motion</h2></div>
+              <div class="content">
+                <h2>Servos and Motion</h2>
+                <img style="width: 250px; max-height: 800px" src="Graphics/installation workings/servo.png">
+              </div>
               <div class="more-text">
                 <p class="main-text">
-                  The motion of the water bottles is accomplished through individual linear actuator modules driven by servo motors. 
+                  The motion of the water bottles is accomplished through individual <span style="color: cyan">linear actuator modules driven by servo motors</span>. 
                   The vertical motion of each bottle is controlled by one such module, with a single servo driver board controlling
                   all the motors at once. Just like all the other electronics in the installation, 
-                  external power will be obtained through a wall outlet connection which the servo driver would distribute to the motors. 
+                  external power will be obtained through a wall outlet connection which the servo driver would distribute to the motors.
+                </p>
+                <p class="main-text"> 
                   The motors we are using are the FEETECH FS90R continuous rotation servos, which run at 6V. 
                   We opted to use these instead of typical positional servos as the continuous rotation makes it very easy for us to adjust the 
                   range of motion of our actuators. The servo driver we are using is the Adafruit PCA9685 16 channel 
                   PWM Driver which communicates with our ESP32 through I2C.
                 </p>
-                <img style="width: 600px; max-height: 1000px" src="Graphics/installation workings/servoMotionPic.png">
+                <img style="width: 400px; max-height: 1000px" src="Graphics/installation workings/servoMotionPic.png">
+                
               </div>
             </div>
 
@@ -196,7 +229,7 @@
               </div>
               <div class="more-text">
                 <p class="main-text">
-                  The two main sensors we used in testing water samples were a pH sensor and a turbidity sensor. 
+                  The two main sensors we used in testing water samples were a <span style="color: cyan">pH sensor</span> and a <span style="color: cyan">turbidity sensor</span>. 
                   Monitoring pH levels is crucial for assessing water quality, as it indicates the acidity or alkalinity of water. 
                   For this purpose, we utilize a Gravity Analog pH sensor, which operates by measuring the voltage generated during the exchange 
                   of H+ ions between the solution being tested and the glass membrane of the electrode. Turbidity, on the other hand, measures 
@@ -206,7 +239,7 @@
               
                 <p class="main-text">
                   Throughout our testing phase, we explored various water samples from diverse locations 
-                  including Vancouver Harbour, Wreck Beach, Spanish Banks Beach, tap water, and rainwater. 
+                  including <span style="color: cyan">Vancouver Harbour, Wreck Beach, Spanish Banks Beach, tap water, and rainwater.</span> 
                 </p>
                 <img style="width: 500px; max-height: 1000px" src="Graphics/installation workings/waterLocations.png">
               </div>
@@ -217,15 +250,15 @@
               <div class="back-arrow"></div>
               <div class="content">
                 <h2>Edge-Lit Acrylic Pieces</h2>
-                <img src="" alt="acrylicPic">
+                <img style="padding-bottom: 15px; width: 300px; max-height: 1000px" src="Graphics/installation workings/acrylicPrototype.jpeg" alt="acrylicPic">
               </div>
               <div class="more-text">
                 <p class="main-text">
                   The edge-lit acrylic pieces of the installation serve to build user empathy and visually reinforce the installation’s connection 
-                  to the drinking water issue at hand. These pieces were first hand drawn, then converted to necessary .svg file format using the free vector drawing software Inkscape.
-                  The IGEN 2D Print Shop handled the laser cutting and engraving process and provided us with ~6-cm thick transparent acrylic material. 
+                  to the drinking water issue at hand. These pieces were first hand drawn, then converted to .svg file format using the free vector drawing software Inkscape
+                  for laser cutting and engraving. The IGEN 2D Print Shop handled the manufacturing process and provided us with ~6-cm thick transparent acrylic material. 
                 </p>
-                <img style="width: 600px; max-height: 1000px" src="Graphics/installation workings/acrylicVectors.png">
+                <img style="width: 300px; max-height: 1000px" src="Graphics/installation workings/acrylicVectors.png">
 
 
               </div>
@@ -237,7 +270,7 @@
       <!-- <div style="font-family: 'Raleway', sans-serif;" id="floatingButton" onclick="deactivateInstallation()">Click me to deactivate installation
         <span style="font-size: 20px">(Turn off the lights and motion)</span></div> -->
     
-      <script>
+      <script>        
         document.querySelectorAll('.grid-item').forEach(item => {
           item.addEventListener('click', () => {
             item.classList.toggle('flipped');
@@ -252,6 +285,6 @@
       </script>
     </body>
     <footer>
-        <a href="#" onclick="redirectToPage('index.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
+      <a href="#" onclick="redirectToPage('index.html')"><span style="font-family: 'Blinker', sans-serif;">Return to landing page</span></a>
     </footer>
 </html>
