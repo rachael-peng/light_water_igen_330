@@ -130,25 +130,54 @@
               <tr>
                 <td>
                   <p class="main-text" style="padding-left: 50px; padding-right: 50px">
-                    In order to activate the installation, we need to pair the current device this website is operating on with the installation's microcontroller via a 
+                    In order to activate the installation, we need to pair this website with the installation's microcontroller via a 
                     Bluetooth connection.
                   </p>
+                  <p class="main-text" style="padding-left: 50px; padding-right: 50px"> 
+                    <span style="color: cyan">1.</span> First, we need to activate the installation's microcontrollers. 
+                    <span style="color: cyan">It's time to get hands-on!</span> You will see on the black base of the installation, on the right side, 
+                    there are TWO small blue microcontrollers. This model of microcontroller is called an ESP32.
+                    Please press and hold for 5 seconds the "<span style="color:#12DF89 ">EN</span>" button on for each of the ESP32s.
+                  </p>
+  
+                  <img style="width: 340px; max-height: 1000px"src="" alt="esp32 on installation">
+                  <img style="padding-right: 50px; padding-bottom: 50px; width: 350px; max-height: 1000px" src="Graphics/ESP32-enable-button.png" alt="enableButtonESP32">
+  
                   <p class="main-text" style="padding-left: 50px; padding-right: 50px">
-                    Please click the button below to do so. You will be prompted by the browser to pair with available devices. Please select "<span style="color:#12DF89 ">ESP32</span>."
+                    <span style="color: cyan">2.</span> 
+                    Secondly, please
+                      <button id="connectBleButton" style="background-color: black; max-height: 
+                      50px; max-width: 700px" class="activate-button">Click me to connect to bluetooth!</button>
+                    You will be prompted by the browser to pair with available devices, as shown in the pictures below. 
+                    Please select "<span style="color:#12DF89 ">ESP32-LED</span>", then click pair. 
+                    Do the same for the motion ESP32: select "<span style="color:#12DF89 ">ESP32-MOTION</span>", then click pair. 
                   </p>
-                  <p class="main-text" style="padding-left: 50px;">
-                    Bluetooth Connection State: <strong><span style="color: red" id="bleState">
-                      Currently Disconnected</span></strong>
-                  </p>
-                  <button id="connectBleButton" style="background-color: black; max-height: 50px; max-width: 700px" class="activate-button">Click me to connect to bluetooth!</button>
-                </td>
-                <td>
-                  <img style="padding-right: 50px; width: 500px; max-height: 1000px" src="Graphics/bluetoothPhoto.png">
+  
+                  <table>
+                    <tr>
+                      <td>
+                        <img style="padding-left: 50px; padding-right: 30px; width: 390px; max-height: 1000px" src="Graphics/firstBluetoothPhoto.png"> 
+                      </td>
+                      <td>
+                        <img style="width: 400px; max-height: 1000px" src="Graphics/bluetoothPhoto.png">
+                      </td>
+                      <td>
+                        <p class="main-text" style="padding-left: 30px; padding-right: 30px;">
+                          Bluetooth Connection State for Lights ESP32: <strong><span style="color: red" id="bleStateLED">
+                            Currently Disconnected</span></strong>
+                        </p>
+                        <p class="main-text" style="padding-left: 30px; padding-right: 30px;">
+                          Bluetooth Connection State for Motion ESP32: <strong><span style="color: red" id="bleStateMotion">
+                            Currently Disconnected</span></strong>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
-            </table>          
-            
+            </table>       
           </div>
+          
           <table>
             <tr>
                 <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">

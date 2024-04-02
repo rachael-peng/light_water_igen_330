@@ -4,20 +4,29 @@ function redirectToPage(pageUrl) {
 }
 
 // INSTALLATION CONTROL 
-// Define BLE device specs 
-var deviceName ='ESP32';
-var bleService = '19b10000-e8f2-537e-4f6c-d104768a1214';
-var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
-
-// Global Variables
-var bleServer;
-var bleServiceFound;
 // Music
 var music = document.getElementById('music');
 
+// Define BLE device specs 
+var deviceNameLED ='ESP32-LED';
+var bleServiceLED = '19b10000-e8f2-537e-4f6c-d104768a1214';
+var ledCharacteristic = '19b10002-e8f2-537e-4f6c-d104768a1214';
+
+var deviceNameMotion = 'ESP32-MOTION';
+var bleServiceMotion = '9d399d3d-75a9-41d0-97e8-a3d188ed4e45';
+var motionCharacteristic = '9d399d3d-75a9-41d0-97e8-a3d188ed4e45';
+
+// Global Variables
+var bleServer;
+var bleServiceFoundLED;
+var bleServiceFoundMotion;
+
 // CONNECT TO BLUETOOTH PROCEDURE
 const connectButton = document.getElementById('connectBleButton');
-const bleStateContainer = document.getElementById('bleState');
+const bleStateContainerLED = document.getElementById('bleStateLED');
+const bleStateContainerMotion = document.getElementById('bleStateMotion');
+
+let deviceConnected;
 
 // Connect Button + Activate installation 
 connectButton.addEventListener('click', (event) => {
@@ -29,23 +38,43 @@ connectButton.addEventListener('click', (event) => {
 // searches for esp32 BLE Device, its Service and Characteristics.
 function connectToDevice(){
   navigator.bluetooth.requestDevice({
-    filters: [{name: deviceName}],
-    optionalServices: [bleService]
+    filters: [
+      {name: deviceNameLED},
+      {name: deviceNameMotion}
+    ],
+    optionalServices: [bleServiceLED, bleServiceMotion]
 })
 .then(device => {
   console.log('Device Selected:', device.name);
-  bleStateContainer.innerHTML = 'Connected to Installation ' + device.name;
-  bleStateContainer.style.color = "#24af37";
-  // device.addEventListener('gattservicedisconnected', onDisconnected);
+  deviceConnected = device.name;
+
+  if (deviceConnected == deviceNameLED) {
+    bleStateContainerLED.innerHTML = 'Connected to Installation ' + device.name;
+    bleStateContainerLED.style.color = "#24af37";
+  } 
+  else {
+    bleStateContainerMotion.innerHTML = 'Connected to Installation ' + device.name;
+    bleStateContainerMotion.style.color = "#24af37";
+  }
   return device.gatt.connect();
 })
 .then(gattServer =>{
   bleServer = gattServer;
   console.log("Connected to GATT Server");
-  return bleServer.getPrimaryService(bleService);
+  if (deviceConnected == deviceNameLED) {
+    return bleServer.getPrimaryService(bleServiceLED);
+  }
+  else {
+    return bleServer.getPrimaryService(bleServiceMotion);
+  }
 })
 .then(service => {
-  bleServiceFound = service;
+  if (deviceConnected == deviceNameLED) {
+    bleServiceFoundLED = service;
+  }
+  else {
+    bleServiceFoundMotion = service;
+  }
   console.log("Service discovered:", service.uuid);
 })
 }
@@ -54,7 +83,7 @@ function connectToDevice(){
 function isWebBluetoothEnabled() {
   if (!navigator.bluetooth) {
       console.log("Web Bluetooth API is not available in this browser!");
-       bleStateContainer.innerHTML = "Web Bluetooth API is not available in this browser/device!";
+       bleStateContainerLED.innerHTML = "Web Bluetooth API is not available in this browser/device!";
        return false
   }
   console.log('Web Bluetooth API supported in this browser.');
@@ -75,30 +104,33 @@ function activateInstallation(installationStateParam) {
   music.pause(); // first pause previous music
 
   if (installationStateParam === "good") {
-    writeOnCharacteristic(3);
+    writeOnLEDCharacteristic(3);
+    writeOnMotionCharacteristic(3);
     var musicSource = 'greatWaterAudio.mp3';
     music.src = musicSource;
     music.play();
   }
   else if (installationStateParam === "middle") {
-    writeOnCharacteristic(2);
+    writeOnLEDCharacteristic(2);
+    writeOnMotionCharacteristic(2);
     music.src = 'fineWaterAudio.mp3';
     music.play();
   }
   else if (installationStateParam === "bad") {
-    writeOnCharacteristic(1);
+    writeOnLEDCharacteristic(1);
+    writeOnMotionCharacteristic(1);
     music.src = 'badWaterAudio.mp3';
     music.play();
   }
   else {
-    writeOnCharacteristic(0);
+    // writeOnLEDCharacteristic(0);
   }
 }
 
-// What value to write to ESP32
-function writeOnCharacteristic(value){
+// What value to write to ESP32 - LED
+function writeOnLEDCharacteristic(value){
   if (bleServer && bleServer.connected) {
-      bleServiceFound.getCharacteristic(ledCharacteristic)
+      bleServiceFoundLED.getCharacteristic(ledCharacteristic)
       .then(characteristic => {
           console.log("Found the LED characteristic: ", characteristic.uuid);
           const data = new Uint8Array([value]);
@@ -116,6 +148,26 @@ function writeOnCharacteristic(value){
   }
 }
 
+// What value to write to ESP32 - Motion
+function writeOnMotionCharacteristic(value){
+  if (bleServer && bleServer.connected) {
+      bleServiceFoundMotion.getCharacteristic(motionCharacteristic)
+      .then(characteristic => {
+          console.log("Found the motion characteristic: ", characteristic.uuid);
+          const data = new Uint8Array([value]);
+          return characteristic.writeValue(data);
+      })
+      .then(() => {
+          console.log("Value written to motionCharacteristic:", value);
+      })
+      .catch(error => {
+          console.error("Error writing to the motion characteristic: ", error);
+      });
+  } else {
+      console.error ("Bluetooth is not connected. Cannot write to characteristic.")
+      window.alert("Bluetooth is not connected. Cannot write to characteristic. \n Connect to BLE first!")
+  }
+}
 
 // /// Turn off all lights and motors
 // function deactivateInstallation() {
