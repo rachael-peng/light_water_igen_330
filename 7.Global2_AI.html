@@ -113,98 +113,96 @@
 
 
         <!--PAGE 3-->
-        <main id="page3" class="hidden">
+      <main id="page3" class="hidden">
+        <table>
+          <tr>
+              <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
+                  <div class="circle-number">3</div></td>
+              <td>
+                  <h2 style="color: #12DF89; text-align: left; border-bottom: 2px solid #12DF89">
+                    Setup Bluetooth Connection
+                  </h2>
+              </td>
+          </tr>
+        </table>
+
+        <div>
           <table>
             <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
-                    <div class="circle-number">3</div></td>
-                <td>
-                    <h2 style="color: #12DF89; text-align: left; border-bottom: 2px solid #12DF89">
-                      Setup Bluetooth Connection
-                    </h2>
-                </td>
+              <td>
+                <p class="main-text" style="padding-left: 50px; padding-right: 50px">
+                  In order to activate the installation, we need to pair this website with the installation's microcontroller via a 
+                  Bluetooth connection.
+                </p>
+              </td>
             </tr>
-          </table>
-
-          <div>
-            <table>
-              <tr>
-                <td>
-                  <p class="main-text" style="padding-left: 50px; padding-right: 50px">
-                    In order to activate the installation, we need to pair this website with the installation's microcontroller via a 
-                    Bluetooth connection.
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="main-text" style="padding-left: 50px; padding-right: 50px"> 
-                    <b><span style="color: cyan">1. Activate the installation's microcontrollers:</span></b>   
-                    On the black <span style="color:#12DF89">base</span> of the installation, on the <span style="color:#12DF89">right</span>
-                      side, there are 2 small blue microcontrollers, called ESP32s.
-                    Please <span style="color:#12DF89">press and hold for 5 seconds</span> the "<span style="color:#12DF89 ">EN</span>" button on for each of the ESP32s.
-                  </p>
-                </td>
-                <td> 
-                  <img style="width: 340px; max-height: 1000px"src="" alt="esp32 on installation">
-                  <img style="padding-right: 50px; padding-bottom: 50px; width: 350px; max-height: 1000px" src="Graphics/ESP32-enable-button.png" alt="enableButtonESP32">
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="main-text" style="padding-left: 50px; padding-right: 50px">
-                    <span style="color: cyan">2.</span> 
-                      <button id="connectBleButton" style="background-color: #12DF89; border-color: #12DF89; max-height: 
-                      50px; max-width: 700px" class="activate-button">Click me to connect to bluetooth!</button>
-                    Select "<span style="color:#12DF89 ">ESP32-LED</span>" and click pair. 
-                  </p>
-                  <p class="main-text" style="padding-left: 50px; padding-right: 30px;">
-                    Bluetooth Connection State for Lights ESP32: <strong><span style="color: red" id="bleStateLED">
-                      Currently Disconnected</span></strong>
-                  </p>
-                </td>
-                <td>
-                  <img style="padding-left: 50px; padding-right: 30px; width: 390px; max-height: 1000px" src="Graphics/firstBluetoothPhoto.png"> 
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <p class="main-text" style="padding-left: 50px; padding-right: 50px">
-                    <span style="color: cyan">3.</span> 
+            <!-- <tr>
+              <td>
+                <p class="main-text" style="padding-left: 50px; padding-right: 50px"> 
+                  <b><span style="color: cyan">1. Activate the installation's microcontrollers:</span></b>   
+                  On the black <span style="color:#12DF89">base</span> of the installation, on the <span style="color:#12DF89">right</span>
+                    side, there are 2 small blue microcontrollers, called ESP32s.
+                  Please <span style="color:#12DF89">press and hold for 5 seconds</span> the "<span style="color:#12DF89 ">EN</span>" button on for each of the ESP32s.
+                </p>
+              </td>
+              <td> 
+                <img style="width: 340px; max-height: 1000px"src="" alt="esp32 on installation">
+                <img style="padding-right: 50px; padding-bottom: 50px; width: 350px; max-height: 1000px" src="Graphics/ESP32-enable-button.png" alt="enableButtonESP32">
+              </td>
+            </tr> -->
+            <tr>
+              <td>
+                <p class="main-text" style="padding-left: 50px; padding-right: 50px">
+                  <span style="color: cyan">1.</span> 
                     <button id="connectBleButton" style="background-color: #12DF89; border-color: #12DF89; max-height: 
-                      50px; width: 420px" class="activate-button">Click me to connect to bluetooth again!</button>
-                    Select "<span style="color:#12DF89 ">ESP32-MOTION</span>" and click pair. 
-                  </p>
-                  <p class="main-text" style="padding-left: 50px; padding-right: 30px;">
-                    Bluetooth Connection State for Motion ESP32: <strong><span style="color: red" id="bleStateMotion">
-                      Currently Disconnected</span></strong>
-                  </p>
-                </td>
-                <td>
-                  <img style="width: 400px; max-height: 1000px" src="Graphics/bluetoothPhoto.png">
-                </td>
-
-              </tr>
-                
-            </table>       
-          </div>
-          
-          <table>
-            <tr>
-                <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
-                    <div class="circle-number">4</div></td>
-                <td>
-                    <h2 style="color: #12DF89; text-align: left; border-bottom: 2px solid #12DF89">
-                      Activate Installation:
-                    </h2>
-                </td>
-                <td style="padding-left: 20px; ">
-                  <button id="activateInstallationButton" style="background-color: #12DF89; border-color: #12DF89; max-height: 50px; max-width: 240px" class="activate-button">Click me to activate!</button>
-                </td>
+                    50px; max-width: 700px" class="activate-button">Click me to connect to bluetooth!</button>
+                  Select "<span style="color:#12DF89 ">ESP32-LED</span>" and click pair. 
+                </p>
+                <p class="main-text" style="padding-left: 50px; padding-right: 30px;">
+                  Bluetooth Connection State for Lights ESP32: <strong><span style="color: red" id="bleStateLED">
+                    Currently Disconnected</span></strong>
+                </p>
+              </td>
+              <td>
+                <img style="padding-left: 50px; padding-right: 30px; width: 390px; max-height: 1000px" src="Graphics/firstBluetoothPhoto.png"> 
+              </td>
             </tr>
-          </table>
-          
-        </main>
+            <tr>
+              <td>
+                <p class="main-text" style="padding-left: 50px; padding-right: 50px">
+                  <span style="color: cyan">2.</span> 
+                  Click the same button for step 2. Select "<span style="color:#12DF89 ">ESP32-MOTION</span>" and click pair. 
+                </p>
+                <p class="main-text" style="padding-left: 50px; padding-right: 30px;">
+                  Bluetooth Connection State for Motion ESP32: <strong><span style="color: red" id="bleStateMotion">
+                    Currently Disconnected</span></strong>
+                </p>
+              </td>
+              <td>
+                <img style="width: 400px; max-height: 1000px" src="Graphics/bluetoothPhoto.png">
+              </td>
+
+            </tr>
+              
+          </table>       
+        </div>
+        
+        <table>
+          <tr>
+              <td style="padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
+                  <div class="circle-number">4</div></td>
+              <td>
+                  <h2 style="color: #12DF89; text-align: left; border-bottom: 2px solid #12DF89">
+                    Activate Installation:
+                  </h2>
+              </td>
+              <td style="padding-left: 20px; ">
+                <button id="activateInstallationButton" style="background-color: #12DF89; border-color: #12DF89; max-height: 50px; max-width: 240px" class="activate-button">Click me to activate!</button>
+              </td>
+          </tr>
+        </table>
+        
+      </main>
 
 
         
