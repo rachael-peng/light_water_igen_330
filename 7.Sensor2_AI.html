@@ -105,38 +105,30 @@
             <!--WRECK BEACH-->
             <td style="padding: 20px">
               <a id="wreckBeach" href="#" onclick="displayWaterSample(this.id)">
-                <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px" src="" alt="">
+                <img style="width: 300px; max-height: 1000px;" src="Graphics/sensor/locations/wreckBeachLocation.png" alt="wreck beach">
                 <figcaption class="main-text" style="text-align: center;">
                   UBC Wreck Beach Water Sample
                 </figcaption>
               </a>
             </td>
-            <!--FALSE CREEK-->
-            <td style="padding: 20px">
-              <a id="falseCreek" href="#" onclick="displayWaterSample(this.id)">
-                <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px" src="" alt="">
-                <figcaption class="main-text" style="text-align: center;">
-                  False Creek Water Sample
-                </figcaption>
-              </a>
-            </td>
+            
             <!--RAINWATER-->
             <td style="padding: 20px">
               <a id="rainwater" href="#" onclick="displayWaterSample(this.id)">
-                <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px" src="" alt="">
+                <img style="width: 300px; max-height: 1000px;" src="Graphics/sensor/locations/rainwaterLocation.png" alt="rainwater">
                 <figcaption class="main-text" style="text-align: center;">
                   UBC Rainwater Sample
                 </figcaption>
               </a>
             </td>
-            <td>
+            <!-- <td>
               <a id="???" href="#" onclick="displayWaterSample(this.id)">
                 <img onclick="redirectToPage('7.Sensor3_AI.html')" style="width: 300px" src="" alt="">
                 <figcaption class="main-text" style="text-align: center;">
                   
                 </figcaption>
               </a>
-            </td>
+            </td> -->
           </tr>
         </table>
       
@@ -166,7 +158,7 @@
                 </p>
               </td>
             </tr>
-            <tr>
+            <!-- <tr>
               <td>
                 <p class="main-text" style="padding-left: 50px; padding-right: 50px"> 
                   <b><span style="color: cyan">1. Activate the installation's microcontrollers:</span></b>   
@@ -179,11 +171,11 @@
                 <img style="width: 340px; max-height: 1000px"src="" alt="esp32 on installation">
                 <img style="padding-right: 50px; padding-bottom: 50px; width: 350px; max-height: 1000px" src="Graphics/ESP32-enable-button.png" alt="enableButtonESP32">
               </td>
-            </tr>
+            </tr> -->
             <tr>
               <td>
                 <p class="main-text" style="padding-left: 50px; padding-right: 50px">
-                  <span style="color: cyan">2.</span> 
+                  <span style="color: cyan">1.</span> 
                     <button id="connectBleButton" style="background-color: #12DF89; border-color: #12DF89; max-height: 
                     50px; max-width: 700px" class="activate-button">Click me to connect to bluetooth!</button>
                   Select "<span style="color:#12DF89 ">ESP32-LED</span>" and click pair. 
@@ -200,7 +192,7 @@
             <tr>
               <td>
                 <p class="main-text" style="padding-left: 50px; padding-right: 50px">
-                  <span style="color: cyan">3.</span> 
+                  <span style="color: cyan">2.</span> 
                   Click the same button for step 2. Select "<span style="color:#12DF89 ">ESP32-MOTION</span>" and click pair. 
                 </p>
                 <p class="main-text" style="padding-left: 50px; padding-right: 30px;">
@@ -255,8 +247,8 @@
             <td style="padding: 20px;">
               <h2>pH Scale</h2>
               <div class="container">
-                <img class="background-image" style="width: 700px; max-height: 1000px" src="Graphics/sensor/pH scale.png" alt="pH colour scale">
-                <img class="overlay-image-bar" style="width: 700px; height: 20px" src="Graphics/sensor/scale bar.png" alt="White bar to show scale"> 
+                <img class="background-image" style="padding-left: 80px; width: 700px; max-height: 1000px" src="Graphics/sensor/pH scale.png" alt="pH colour scale">
+                <img class="overlay-image-bar" style="padding-left: 80px; width: 700px; height: 20px" src="Graphics/sensor/scale bar.png" alt="White bar to show scale"> 
                 <img id="movingpH" class="overlay-image-arrow-ph" style="width: 60px; height: auto" src="Graphics/sensor/Arrow.png" alt="Adjustable arrow">
                 <div id="movingpHNum" class="circle-number overlay-image-circle"><span id="phVal"></span></div>
               </div>
@@ -275,7 +267,7 @@
                   <p id='bacteriaCaption' class="main-text" style="text-align: left;">No E.Coli. detected!</p>
                 </figcaption>
               </div>
-              <h2>Mineral and Ion Concentrations</h2>
+              <!-- <h2>Mineral and Ion Concentrations</h2>
               <p class="main-text">
                 <span style="color:#12DF89">Iron = <span id="ironVal"></span>;</span>
                 <span style="color:red">Sodium Chloride = <span id="naclVal"></span>;</span>
@@ -290,7 +282,7 @@
                 <span style="color:#12DF89">Sulfate = <span id="sulfateVal"></span>;</span>
                 <span style="color:#12DF89">Nitrate = <span id="nitrateVal"></span>;</span>
                 <span style="color:#12DF89">Nitrite = <span id="nitriteVal"></span>;</span>
-              </p>
+              </p> -->
             </td>
 
 
@@ -383,7 +375,7 @@
             </td>
             <td>
               <h2 style="color: #12DF89; border-bottom: 2px solid #12DF89;">
-                More about Minerals and Ions
+                Want More? Learn about Minerals and Ions
               </h2>
               <p class="main-text">
                 Water testing is crucial for water providers to ensure that drinking water meets quality standards and is

@@ -450,26 +450,25 @@ function displayWaterSample(linkId) {
 
   // Update values displayed on webpage based on water sample data 
   // (turbidity, pH, mineral and ion values)
-  document.getElementById("zincVal").innerHTML = measureZinc;
-  document.getElementById("ironVal").innerHTML = measureIron;
-  document.getElementById("naclVal").innerHTML = measureSodiumChloride;
-  document.getElementById("hardnessVal").innerHTML = measureHardness;
-  document.getElementById("copperVal").innerHTML = measureCopper;
-  document.getElementById("leadVal").innerHTML = measureLead;
-  document.getElementById("h2sVal").innerHTML = measureHydrogenSulfide;
-  document.getElementById("fluorideVal").innerHTML = measureFluoride;
-  document.getElementById("sulfateVal").innerHTML = measureSulfate;
-  document.getElementById("nitrateVal").innerHTML = measureNitrate;
-  document.getElementById("nitriteVal").innerHTML = measureNitrite;
-  document.getElementById("manganeseVal").innerHTML = measureManganese;
-  document.getElementById("mercuryVal").innerHTML = measureMercury;
+  // document.getElementById("zincVal").innerHTML = measureZinc;
+  // document.getElementById("ironVal").innerHTML = measureIron;
+  // document.getElementById("naclVal").innerHTML = measureSodiumChloride;
+  // document.getElementById("hardnessVal").innerHTML = measureHardness;
+  // document.getElementById("copperVal").innerHTML = measureCopper;
+  // document.getElementById("leadVal").innerHTML = measureLead;
+  // document.getElementById("h2sVal").innerHTML = measureHydrogenSulfide;
+  // document.getElementById("fluorideVal").innerHTML = measureFluoride;
+  // document.getElementById("sulfateVal").innerHTML = measureSulfate;
+  // document.getElementById("nitrateVal").innerHTML = measureNitrate;
+  // document.getElementById("nitriteVal").innerHTML = measureNitrite;
+  // document.getElementById("manganeseVal").innerHTML = measureManganese;
+  // document.getElementById("mercuryVal").innerHTML = measureMercury;
   document.getElementById("phVal").innerHTML = pHVal;
   document.getElementById("turbidityVal").innerHTML = turbidityVal;
 
   updateWaterDisplayImg();
   updateEcoliDisplay();
   updatepHTurbidityDisplay();
-  updateMineralIonDisplay();
 }
 
 // WATER SAMPLE DATA 
@@ -492,7 +491,7 @@ function getWaterData(waterID) {
       measureSulfate = 0;
       measureNitrate = 0;
       measureNitrite = 0;
-      installationState = "middle";
+      installationState = "bad";
   }
   // 2. Household Tap Water
   else if (waterID === "householdTap") {
@@ -532,7 +531,7 @@ function getWaterData(waterID) {
     measureSulfate = 0;
     measureNitrate = 0;
     measureNitrite = 0;
-    installationState = "good";
+    installationState = "middle";
   }
   // 4. Mystery - Dirt and Lemon
   else if (waterID === "dirtLemon") {
@@ -554,10 +553,46 @@ function getWaterData(waterID) {
     measureNitrite  = 0;
     installationState = "bad";
   }
-  
-  // 5. Wreck Beach
-  // 6. Rainwater
-  // 7. 
+  // 5. Rainwater
+  else if (waterID === 'rainwater') {
+    pHVal = 5.35;
+    turbidityVal = 0.03;
+    ecoliBacteriaIndicator = 0;
+    measureSodiumChloride = 0;
+    measureZinc = 0;
+    measureMercury = 0;
+    measureManganese = 0;
+    measureCopper = 0;
+    measureIron = 0;
+    measureLead = 0;
+    measureHydrogenSulfide = 0;
+    measureFluoride = 0;
+    measureHardness = 0;
+    measureSulfate = 0;
+    measureNitrate = 0;
+    measureNitrite  = 0;
+    installationState = "middle";
+  }
+  // 6. Wreck Beach
+  else if (waterID === 'wreckBeach') {
+    pHVal = 5.72;
+    turbidityVal = 0.13;
+    ecoliBacteriaIndicator = 0;
+    // measureSodiumChloride = 0;
+    // measureZinc = 0;
+    // measureMercury = 0;
+    // measureManganese = 0;
+    // measureCopper = 0;
+    // measureIron = 0;
+    // measureLead = 0;
+    // measureHydrogenSulfide = 0;
+    // measureFluoride = 0;
+    // measureHardness = 0;
+    // measureSulfate = 0;
+    // measureNitrate = 0;
+    // measureNitrite  = 0;
+    installationState = "bad";
+  }
 }
 
 // WATER SAMPLE DATA AND GRAPHICS DISPLAY 
@@ -571,7 +606,9 @@ function updateWaterDisplayImg() {
       "spanishBanks": 'Graphics/sensor/samples/spanish banks sample.png',
       "householdTap": 'Graphics/sensor/samples/tap water - pH.jpeg',
       'vanHarbour': 'Graphics/sensor/samples/harbour smaple.png',
-      "dirtLemon": 'Graphics/sensor/samples/eng sample - turbidity.jpeg'
+      "dirtLemon": 'Graphics/sensor/samples/eng sample - turbidity.jpeg',
+      'rainwater': 'Graphics/sensor/samples/rainwater.png',
+      'wreckBeach': 'Graphics/sensor/samples/wreckBeachContainer.png'
   };
 
   // Set the src attribute of the image element based on the variable value
@@ -610,47 +647,57 @@ function updatepHTurbidityDisplay() {
   // Sample by sample positioning
   // SPANISH BANKS
   if (storedWaterId === "spanishBanks") {
-    movingElementpH.style.left = '235px';
+    movingElementpH.style.left = '315px';
     movingElementTur.style.left = '360px';
-    movingElementpHNum.style.left = '230px';
+    movingElementpHNum.style.left = '310px';
     movingElementTurNum.style.left = '355px';
 
     nameOfSample.textContent = "Spanish Banks Beach Water Sample";
   }
-
   // TAP WATER
   else if (storedWaterId === "householdTap") {
-    movingElementpH.style.left = '265px';
+    movingElementpH.style.left = '345px';
     movingElementTur.style.left = '620px';
-    movingElementpHNum.style.left = '260px';
+    movingElementpHNum.style.left = '340px';
     movingElementTurNum.style.left = '615px';
 
     nameOfSample.textContent = "Household Tap Water Sample";
   }
-
   // MYSTERY 
   else if (storedWaterId === "dirtLemon") {
-    movingElementpH.style.left = '180px';
+    movingElementpH.style.left = '260px';
     movingElementTur.style.left = '-20px';
-    movingElementpHNum.style.left = '180px';
+    movingElementpHNum.style.left = '260px';
     movingElementTurNum.style.left = '-25px';
 
     nameOfSample.textContent = "Mystery Water Sample";
   }
-
   // VANCOUVER HARBOUR
   else if (storedWaterId === "vanHarbour") {
-    movingElementpH.style.left = '270px';
+    movingElementpH.style.left = '350px';
     movingElementTur.style.left = '595px';
-    movingElementpHNum.style.left = '265px';
+    movingElementpHNum.style.left = '345px';
     movingElementTurNum.style.left = '590px';
 
     nameOfSample.textContent = "Vancouver Harbour Water Sample";
   }
-}
+  // WRECK BEACH
+  else if (storedWaterId === "wreckBeach") {
+    movingElementpH.style.left = '310px';
+    movingElementTur.style.left = '535px';
+    movingElementpHNum.style.left = '305px';
+    movingElementTurNum.style.left = '530px';
 
-// Mineral and Ion Values 
-  // if ...clour...
-function updateMineralIonDisplay() {
+    nameOfSample.textContent = "Wreck Beach Water Sample";
+  }
 
+  // RAINWATER
+  else if (storedWaterId === "rainwater") {
+    movingElementpH.style.left = '295px';
+    movingElementTur.style.left = '595px';
+    movingElementpHNum.style.left = '290px';
+    movingElementTurNum.style.left = '590px';
+
+    nameOfSample.textContent = "Rainwater Sample";
+  }
 }
